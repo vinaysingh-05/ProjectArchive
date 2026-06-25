@@ -32,174 +32,176 @@ interface Project {
 // ─────────────────────────────────────────────────────────────
 
 const PROJECTS: Project[] = [
-  {
-    id: 1,
-    title: "Friendly",
-    description: "Privacy-first AI mental wellness companion for students that detects stress early, offers supportive chat, tracks mood, and provides calming tools — all with zero data sharing.",
-    category: "Web Development",
-    technologies: ["Next.js", "TypeScript", "python", "NLTK", "spaCy"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/Friendly-mental-health",
-    demoUrl: "https://friendly-app-seven.vercel.app/",
-    thumbnail: "/assets/friendly.png",
-    featured: true,
-    featuredType: "Best Project",
-  },
-   {
-    id: 2,
-    title: "Portfolio",
-    description: "Personal portfolio website showcasing projects and skills.",
-    category: "Web Development",
-    technologies: ["HTML", "CSS", "JavaScript", "Node.js"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/portfolio",
-    demoUrl: "https://vinaysingh-05.github.io/portfolio/",
-    thumbnail: "/assets/portfolio.png",
-  },
+    {
+      id: 1,
+      title: "Friendly",
+      description: "Privacy-first AI mental wellness companion for students that detects stress early, offers supportive chat, tracks mood, and provides calming tools — all with zero data sharing.",
+      category: "Web Development",
+      technologies: ["Next.js", "TypeScript", "python", "NLTK", "spaCy"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Friendly-mental-health",
+      demoUrl: "https://friendly-app-seven.vercel.app/",
+      thumbnail: "/assets/friendly.png",
+      featured: true,
+      featuredType: "Best Project",
+    },
+    {
+      id: 2,
+      title: "Portfolio",
+      description: "Personal portfolio website showcasing projects and skills.",
+      category: "Web Development",
+      technologies: ["HTML", "CSS", "JavaScript", "Node.js"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/portfolio",
+      demoUrl: "https://vinaysingh-05.github.io/portfolio/",
+      thumbnail: "/assets/portfolio.png",
+    },
+    {
+      id: 3,
+      title: "Project Archive",
+      description: "A practical developer portfolio focused on simple navigation, direct project access, and a cleaner personal introduction.",
+      category: "Web Development",
+      technologies: ["React", "TypeScript", "Next.js", "tailwind CSS"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Showcase-Website",
+      demoUrl: "#",
+      thumbnail: "/assets/project.png",
+    },
+    {
+      id: 4,
+      title: "Postify App",
+      description: "✨ Postify — A peaceful social media app focused on positivity, emotional comfort, and expression without toxicity, comments, or follow pressure.",
+      category: "App Development",
+      technologies: ["React Native", "Android", "Firebase", "expo"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Postify_App",
+      demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
+      thumbnail: "/assets/postify.png",
+    },
+    {
+      id: 5,
+      title: "Postify Website",
+      description: "✨ Postify — A peaceful social platform to share thoughts, photos, and emotions freely without toxicity, comments, or follow pressure. 💙 Just post, express yourself, and receive positive vibes through likes in a calm & safe digital space 🚀.",
+      category: "Web Development",
+      technologies: ["React", "TypeScript", "Next.js", "tailwind CSS"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Postify-App-Website",
+      demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
+      thumbnail: "/assets/postify website.png",
+    },
+    {
+      id: 6,
+      title: "AirBnB Price Prediction",
+      description: "Predicts Airbnb prices instantly from location, room type, and amenities using Python, scikit-learn, and Streamlit.",
+      category: "Machine Learning",
+      technologies: ["Python", "scikit-learn", "Streamlit"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/ai_powered_airbnb_price_prediction",
+      demoUrl: "https://air-bnb-price-prediction099223.streamlit.app/#contact",
+      thumbnail: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=450&fit=crop&auto=format",
+    },
+    {
+      id: 7,
+      title: "Hitlist",
+      description: "A full-stack habit tracker built with modern web tech, featuring monthly resets, animated analytics, secure authentication, and row-level security",
+      category: "Web Development",
+      technologies: ["React", "TypeScript", "Flask"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/dolist",
+      demoUrl: "https://dolist.lovable.app/",
+      thumbnail: "/assets/hitlist.png",
+    },
+    {
+      id: 8,
+      title: "Roboto",
+      description: "ROBOTO is a futuristic robotics showcase website.",
+      category: "Web Development",
+      technologies: ["HTML", "CSS", " Spline 3D"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/roboto",
+      demoUrl: "https://vinaysingh-05.github.io/roboto/",
+      thumbnail: "/assets/roboto.png",
+    },
+    {
+      id: 9,
+      title: "Diabetes-Risk-Predictor-Neural-Lite",
+      description: "Hybrid collaborative filtering engine delivering personalized film suggestions with 87% satisfaction A high-performance Diabetes Risk Predictor using a Quantized Neural Network (TFLite) .",
+      category: "ML Experiments",
+      technologies: ["Python", "Streamlit", "TFLite", "TensorFlow"],
+      status: "Archived",
+      githubUrl: "https://github.com/vinaysingh-05/Diabetes-Risk-Predictor-Neural-Lite",
+      thumbnail: "/assets/dibetes.png",
+      featured: true,
+    },
+    {
+      id: 10,
+      title: "Car Price Prediction",
+      description: "Smart Car Price Prediction App built with Machine Learning — delivering fast, accurate, and real-time price estimates with an interactive UI.",
+      category: "Machine Learning",
+      technologies: ["Python", "scikit-learn", "Streamlit"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/car_price_prediction",
+      demoUrl: "https://carpriceprediction-k59ot8irhdohvjoe5vcqdk.streamlit.app/",
+      thumbnail: "/assets/Car.png",
+    },
+    {
+      id: 11,
+      title: "NoteBook",
+      description: "A full-stack notes app featuring real-time syncing ⚡, secure authentication 🔒, and a responsive U",
+      category: "Web Development",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/notebook",
+      demoUrl: "https://notebook-khaki-sigma.vercel.app/",
+      thumbnail: "/assets/notwbook.png",
+      featured: true,
+    },
+    {
+      id: 12,
+      title: "Digit Recognizer",
+      description: "This project builds a digit recognition system 🔢 using machine learning 🤖 and compares performance with and without PCA 📊 to balance accuracy 🎯 and efficiency",
+      category: "ML Experiments",
+      technologies: ["Python", "scikit-learn", "PCA"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Digit-Recognizer-withPCA-withoutPCA",
+      thumbnail: "/assets/digits.png",
+    },
+    {
+      id: 13,
+      title: "AI Workplace Productivity Analysis",
+      description: "AI-powered workplace behavior & productivity analysis using Machine Learning to predict employee stress, performance trends, and productivity insights.",
+      category: "Machine Learning",
+      technologies: ["Python", "scikit-learn", "Streamlit", "kaggle"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/ai-workplace-productivity-analysis",
+      demoUrl: "https://ai-workplace-appuctivity-analysis-93hbuvhxz5xdah2zhznzvi.streamlit.app/",
+      thumbnail: "/assets/wellness.png",
+    },
+    {
+      id: 14,
+      title: "ML Learning Topics",
+      description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
+      category: "ML Experiments",
+      technologies: ["Python", "scikit-learn", "Streamlit", "kaggle"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/ML-Topics",
+      thumbnail: "/assets/ml.png",
+    }
 
-{
-    id: 3,
-    title: "Project Archive",
-    description: "A practical developer portfolio focused on simple navigation, direct project access, and a cleaner personal introduction.",
-    category: "Web Development",
-    technologies: ["React", "TypeScript", "Next.js", "tailwind CSS"],
-    status: "Completed",
-    githubUrl: "#",
-    demoUrl: "#",
-    thumbnail: "/assets/project.png",
-  },
-{
-    id: 4,
-    title: "Postify App",
-    description: "✨ Postify — A peaceful social media app focused on positivity, emotional comfort, and expression without toxicity, comments, or follow pressure.",
-    category: "App Development",
-    technologies: ["React Native", "Android", "Firebase", "expo"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/Postify_App",
-    demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
-    thumbnail: "/assets/postify.png",
-  },
-{
-    id: 5,
-    title: "Postify Website",
-    description: "✨ Postify — A peaceful social platform to share thoughts, photos, and emotions freely without toxicity, comments, or follow pressure. 💙 Just post, express yourself, and receive positive vibes through likes in a calm & safe digital space 🚀.",
-    category: "Web Development",
-    technologies: ["React", "TypeScript", "Next.js", "tailwind CSS"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/Postify-App-Website",
-    demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
-    thumbnail: "/assets/postify website.png",
-  },
-  {
-    id: 6,
-    title: "AirBnB Price Prediction",
-    description: "Predicts Airbnb prices instantly from location, room type, and amenities using Python, scikit-learn, and Streamlit.",
-    category: "Machine Learning",
-    technologies: ["Python", "scikit-learn", "Streamlit"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/ai_powered_airbnb_price_prediction",
-    demoUrl: "https://air-bnb-price-prediction099223.streamlit.app/#contact",
-    thumbnail: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=450&fit=crop&auto=format",
-  },
-  {
-    id: 7,
-    title: "Hitlist",
-    description: "A full-stack habit tracker built with modern web tech, featuring monthly resets, animated analytics, secure authentication, and row-level security",
-    category: "Web Development",
-    technologies: ["React", "TypeScript", "Flask"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/dolist",
-     demoUrl: "https://dolist.lovable.app/",
-    thumbnail: "/assets/hitlist.png",
-  },
-  {
-    id: 8,
-    title: "Roboto",
-    description: "ROBOTO is a futuristic robotics showcase website.",
-    category: "Web Development",
-    technologies: ["HTML", "CSS", " Spline 3D"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/roboto",
-    demoUrl: "https://vinaysingh-05.github.io/roboto/",
-    thumbnail: "/assets/roboto.png",
-  },
-  {
-    id: 9,
-    title: "Diabetes-Risk-Predictor-Neural-Lite",
-    description: "Hybrid collaborative filtering engine delivering personalized film suggestions with 87% satisfaction A high-performance Diabetes Risk Predictor using a Quantized Neural Network (TFLite) .",
-    category: "ML Experiments",
-    technologies: ["Python", "Streamlit", "TFLite", "TensorFlow"],
-    status: "Archived",
-    githubUrl: "https://github.com/vinaysingh-05/Diabetes-Risk-Predictor-Neural-Lite",
-    thumbnail: "/assets/dibetes.png",
-    featured: true,
-  },
-  {
-    id: 10,
-    title: "Car Price Prediction",
-    description: "Smart Car Price Prediction App built with Machine Learning — delivering fast, accurate, and real-time price estimates with an interactive UI.",
-    category: "Machine Learning",
-    technologies: ["Python",  "scikit-learn", "Streamlit", ],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/car_price_prediction",
-    demoUrl: "https://carpriceprediction-k59ot8irhdohvjoe5vcqdk.streamlit.app/",
-    thumbnail: "/assets/Car.png",
-  },
-  {
-    id: 11,
-    title: "NoteBook",
-    description: "A full-stack notes app featuring real-time syncing ⚡, secure authentication 🔒, and a responsive U",
-    category: "Web Development",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/notebook",
-    demoUrl: "https://notebook-khaki-sigma.vercel.app/",
-    thumbnail: "/assets/notwbook.png",
-    featured: true,
-  },
-{
-    id: 12,
-    title: "Digit Recognizer",
-    description: "This project builds a digit recognition system 🔢 using machine learning 🤖 and compares performance with and without PCA 📊 to balance accuracy 🎯 and efficiency",
-    category: "ML Experiments",
-    technologies: ["Python", "scikit-learn", "PCA"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/Digit-Recognizer-withPCA-withoutPCA",
-    thumbnail: "/assets/digits.png"
-  },
+// there we adds more projects in the same format as above, and they will automatically be displayed in the portfolio.
 
-{
-    id: 13,
-    title: "AI Workplace Productivity Analysis",
-    description: "AI-powered workplace behavior & productivity analysis using Machine Learning to predict employee stress, performance trends, and productivity insights.",
-    category: "Machine Learning",
-    technologies: ["Python", "scikit-learn", "Streamlit","kaggle"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/ai-workplace-productivity-analysis",
-    demoUrl: "https://ai-workplace-appuctivity-analysis-93hbuvhxz5xdah2zhznzvi.streamlit.app/",
-    thumbnail: "/assets/wellness.png",
-  },
 
-{
-    id: 14,
-    title: "ML Learning Topics",
-    description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
-    category: "ML Experiments",
-    technologies: ["Python", "scikit-learn", "Streamlit","kaggle"],
-    status: "Completed",
-    githubUrl: "https://github.com/vinaysingh-05/ML-Topics",
-    thumbnail: "/assets/ml.png",
-  }
-];
+  ];
+
+const PROJECT_COUNT = PROJECTS.length;
+
+const CATEGORY_FILTERS = Array.from(new Set(PROJECTS.map((project) => project.category)));
 
 // ─────────────────────────────────────────────────────────────
 // CONSTANTS
 // ─────────────────────────────────────────────────────────────
 
-const FILTERS = [
-  "All Projects", "Machine Learning", "Data Science",
-  "Web Development","App Development","ML Experiments","Deep Learning"
-];
+const FILTERS = ["All Projects", ...CATEGORY_FILTERS];
 
 const CAT_COLORS: Record<string, string> = {
   "AI/ML": "bg-violet-500/15 border-violet-500/30 text-violet-300",
@@ -507,9 +509,9 @@ function HeroSection() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto lg:mx-0">
-            <StatCard icon={Layers} label="Projects" value={8} delay={0.1} />
+            <StatCard icon={Layers} label="Projects" value={PROJECT_COUNT} delay={0.1} />
             <StatCard icon={Cpu} label="Technologies" value={20} suffix="+" delay={0.2} />
-            <StatCard icon={Filter} label="Categories" value={4} delay={0.3} />
+            <StatCard icon={Filter} label="Categories" value={CATEGORY_FILTERS.length} delay={0.3} />
             <StatCard icon={GoalIcon} label="Hackathons" value={20} suffix="+" delay={0.4} />
           </div>
         </div>
@@ -713,13 +715,13 @@ function ProjectCard({
             </span>
           </div>
 
-          {/* Year */}
+          {/* ID */}
           <div className="absolute top-2.5 right-2.5">
             <span
               className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-black/40 backdrop-blur-sm border border-white/10 text-white/40"
               style={{ fontFamily: "'JetBrains Mono', monospace" }}
             >
-              {project.year}
+              #{project.id}
             </span>
           </div>
         </div>
