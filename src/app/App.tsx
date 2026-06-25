@@ -942,9 +942,9 @@ function Footer() {
 
         <div className="flex items-center justify-center gap-2 flex-wrap mb-7">
           {[
-            { label: "Email Me", icon: Mail, href: "vk8964210@gmail.com" },
-            { label: "GitHub Profile", icon: Github, href: "https://github.com/vinaykumar" },
-            { label: "LinkedIn", icon: ExternalLink, href: "https://linkedin.com/in/vinaykumar" },
+            { label: "Email Me", icon: Mail, href: "mailto:vk8964210@gmail.com" },
+            { label: "GitHub Profile", icon: Github, href: "https://github.com/vinaysingh-05" },
+            { label: "LinkedIn", icon: ExternalLink, href: "https://www.linkedin.com/in/vinay-kumar0805/" },
           ].map(({ label, icon: Icon, href }) => (
             <a
               key={label}
