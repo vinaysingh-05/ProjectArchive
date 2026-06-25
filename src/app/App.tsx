@@ -41,7 +41,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Friendly-mental-health",
       demoUrl: "https://friendly-app-seven.vercel.app/",
-      thumbnail: "/assets/friendly.png",
+      thumbnail: "/src/app/assets/friendly.png",
       featured: true,
       featuredType: "Best Project",
     },
@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/portfolio",
       demoUrl: "https://vinaysingh-05.github.io/portfolio/",
-      thumbnail: "/assets/portfolio.png",
+      thumbnail: "/src/app/assets/portfolio.png",
     },
     {
       id: 3,
@@ -65,7 +65,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Showcase-Website",
       demoUrl: "#",
-      thumbnail: "/assets/project.png",
+      thumbnail: "/src/app/assets/project.png",
     },
     {
       id: 4,
@@ -76,7 +76,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Postify_App",
       demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
-      thumbnail: "/assets/postify.png",
+      thumbnail: "/src/app/assets/postify.png",
     },
     {
       id: 5,
@@ -87,7 +87,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Postify-App-Website",
       demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
-      thumbnail: "/assets/postify website.png",
+      thumbnail: "/src/app/assets/postify website.png",
     },
     {
       id: 6,
@@ -109,7 +109,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/dolist",
       demoUrl: "https://dolist.lovable.app/",
-      thumbnail: "/assets/hitlist.png",
+      thumbnail: "/src/app/assets/hitlist.png",
     },
     {
       id: 8,
@@ -120,7 +120,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/roboto",
       demoUrl: "https://vinaysingh-05.github.io/roboto/",
-      thumbnail: "/assets/roboto.png",
+      thumbnail: "/src/app/assets/roboto.png",
     },
     {
       id: 9,
@@ -130,7 +130,7 @@ const PROJECTS: Project[] = [
       technologies: ["Python", "Streamlit", "TFLite", "TensorFlow"],
       status: "Archived",
       githubUrl: "https://github.com/vinaysingh-05/Diabetes-Risk-Predictor-Neural-Lite",
-      thumbnail: "/assets/dibetes.png",
+      thumbnail: "/src/app/assets/dibetes.png",
       featured: true,
     },
     {
@@ -142,7 +142,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/car_price_prediction",
       demoUrl: "https://carpriceprediction-k59ot8irhdohvjoe5vcqdk.streamlit.app/",
-      thumbnail: "/assets/Car.png",
+      thumbnail: "/src/app/assets/Car.png",
     },
     {
       id: 11,
@@ -153,7 +153,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/notebook",
       demoUrl: "https://notebook-khaki-sigma.vercel.app/",
-      thumbnail: "/assets/notwbook.png",
+      thumbnail: "/src/app/assets/notwbook.png",
       featured: true,
     },
     {
@@ -164,7 +164,7 @@ const PROJECTS: Project[] = [
       technologies: ["Python", "scikit-learn", "PCA"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Digit-Recognizer-withPCA-withoutPCA",
-      thumbnail: "/assets/digits.png",
+      thumbnail: "/src/app/assets/digits.png",
     },
     {
       id: 13,
@@ -175,7 +175,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/ai-workplace-productivity-analysis",
       demoUrl: "https://ai-workplace-appuctivity-analysis-93hbuvhxz5xdah2zhznzvi.streamlit.app/",
-      thumbnail: "/assets/wellness.png",
+      thumbnail: "/src/app/assets/wellness.png",
     },
     {
       id: 14,
@@ -185,7 +185,7 @@ const PROJECTS: Project[] = [
       technologies: ["Python", "scikit-learn", "Streamlit", "kaggle"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/ML-Topics",
-      thumbnail: "/assets/ml.png",
+      thumbnail: "/src/app/assets/ml.png",
     }
 
 // there we adds more projects in the same format as above, and they will automatically be displayed in the portfolio.
