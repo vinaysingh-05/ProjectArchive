@@ -41,7 +41,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Friendly-mental-health",
       demoUrl: "https://friendly-app-seven.vercel.app/",
-      thumbnail: "/src/app/assets/friendly.png",
+      thumbnail: "/friendly.png",
       featured: true,
       featuredType: "Best Project",
     },
@@ -164,7 +164,7 @@ const PROJECTS: Project[] = [
       technologies: ["Python", "scikit-learn", "PCA"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Digit-Recognizer-withPCA-withoutPCA",
-      thumbnail: "/src/app/assets/digits.png",
+      thumbnail: "/digits.png",
     },
     {
       id: 13,
