@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/portfolio",
       demoUrl: "https://vinaysingh-05.github.io/portfolio/",
-      thumbnail: "/src/app/assets/portfolio.png",
+      thumbnail: "/Portfolio.png",
     },
     {
       id: 3,
@@ -65,7 +65,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Showcase-Website",
       demoUrl: "#",
-      thumbnail: "/src/app/assets/project.png",
+      thumbnail: "/project.png",
     },
     {
       id: 4,
@@ -76,7 +76,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Postify_App",
       demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
-      thumbnail: "/src/app/assets/postify.png",
+      thumbnail: "/Postify.png",
     },
     {
       id: 5,
@@ -87,7 +87,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Postify-App-Website",
       demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
-      thumbnail: "/src/app/assets/postify website.png",
+      thumbnail: "/postify website.png",
     },
     {
       id: 6,
@@ -109,7 +109,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/dolist",
       demoUrl: "https://dolist.lovable.app/",
-      thumbnail: "/src/app/assets/hitlist.png",
+      thumbnail: "/Hitlist.png",
     },
     {
       id: 8,
@@ -120,7 +120,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/roboto",
       demoUrl: "https://vinaysingh-05.github.io/roboto/",
-      thumbnail: "/src/app/assets/roboto.png",
+      thumbnail: "/Roboto.png",
     },
     {
       id: 9,
@@ -130,7 +130,7 @@ const PROJECTS: Project[] = [
       technologies: ["Python", "Streamlit", "TFLite", "TensorFlow"],
       status: "Archived",
       githubUrl: "https://github.com/vinaysingh-05/Diabetes-Risk-Predictor-Neural-Lite",
-      thumbnail: "/src/app/assets/dibetes.png",
+      thumbnail: "/dibetes.png",
       featured: true,
     },
     {
@@ -142,7 +142,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/car_price_prediction",
       demoUrl: "https://carpriceprediction-k59ot8irhdohvjoe5vcqdk.streamlit.app/",
-      thumbnail: "/src/app/assets/Car.png",
+      thumbnail: "/Car.png",
     },
     {
       id: 11,
@@ -153,7 +153,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/notebook",
       demoUrl: "https://notebook-khaki-sigma.vercel.app/",
-      thumbnail: "/src/app/assets/notwbook.png",
+      thumbnail: "/notwbook.png",
       featured: true,
     },
     {
@@ -175,7 +175,7 @@ const PROJECTS: Project[] = [
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/ai-workplace-productivity-analysis",
       demoUrl: "https://ai-workplace-appuctivity-analysis-93hbuvhxz5xdah2zhznzvi.streamlit.app/",
-      thumbnail: "/src/app/assets/wellness.png",
+      thumbnail: "/wellness.png",
     },
     {
       id: 14,
@@ -185,7 +185,7 @@ const PROJECTS: Project[] = [
       technologies: ["Python", "scikit-learn", "Streamlit", "kaggle"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/ML-Topics",
-      thumbnail: "/src/app/assets/ml.png",
+      thumbnail: "/ml.png",
     }
 
 // there we adds more projects in the same format as above, and they will automatically be displayed in the portfolio.
@@ -243,7 +243,7 @@ function resolveProjectUrl(project: Project) {
 
 function downloadResume() {
   const link = document.createElement("a");
-  link.href = "/assets/Resume.pdf";
+  link.href = "/Resume.pdf";
   link.download = "Vinay-Kumar-Resume.pdf";
   document.body.appendChild(link);
   link.click();
@@ -496,7 +496,7 @@ function HeroSection() {
               View Projects
             </a>
             <a
-              href="/assets/Resume.pdf"
+              href="/Resume.pdf"
               onClick={(e) => {
                 e.preventDefault();
                 downloadResume();
