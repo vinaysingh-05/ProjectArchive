@@ -67,8 +67,20 @@ const PROJECTS: Project[] = [
       demoUrl: "#",
       thumbnail: "/project.png",
     },
-    {
+
+   {
       id: 4,
+      title: "InterviewAI",
+      description: "Generate hyper-relevant interview questions tailored to your role, experience, and target company. Practice smarter with AI-generated answers and structured guidance.",
+      category: "Web Development",
+      technologies: ["React", "TypeScript", "Next.js", "tailwind CSS"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/InterviewAI",
+      demoUrl: "https://ai-interview-question-generator-chi.vercel.app/",
+      thumbnail: "/interviewAI.png",
+    },    
+    {
+      id: 5,
       title: "Postify App",
       description: "✨ Postify — A peaceful social media app focused on positivity, emotional comfort, and expression without toxicity, comments, or follow pressure.",
       category: "App Development",
@@ -79,7 +91,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Postify.png",
     },
     {
-      id: 5,
+      id: 6,
       title: "Postify Website",
       description: "✨ Postify — A peaceful social platform to share thoughts, photos, and emotions freely without toxicity, comments, or follow pressure. 💙 Just post, express yourself, and receive positive vibes through likes in a calm & safe digital space 🚀.",
       category: "Web Development",
@@ -90,7 +102,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/postify website.png",
     },
     {
-      id: 6,
+      id: 7,
       title: "AirBnB Price Prediction",
       description: "Predicts Airbnb prices instantly from location, room type, and amenities using Python, scikit-learn, and Streamlit.",
       category: "Machine Learning",
@@ -101,7 +113,7 @@ const PROJECTS: Project[] = [
       thumbnail: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=450&fit=crop&auto=format",
     },
     {
-      id: 7,
+      id: 8,
       title: "Hitlist",
       description: "A full-stack habit tracker built with modern web tech, featuring monthly resets, animated analytics, secure authentication, and row-level security",
       category: "Web Development",
@@ -112,7 +124,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Hitlist.png",
     },
     {
-      id: 8,
+      id: 9,
       title: "Roboto",
       description: "ROBOTO is a futuristic robotics showcase website.",
       category: "Web Development",
@@ -123,7 +135,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Roboto.png",
     },
     {
-      id: 9,
+      id: 10,
       title: "Diabetes-Risk-Predictor-Neural-Lite",
       description: "Hybrid collaborative filtering engine delivering personalized film suggestions with 87% satisfaction A high-performance Diabetes Risk Predictor using a Quantized Neural Network (TFLite) .",
       category: "ML Experiments",
@@ -134,7 +146,7 @@ const PROJECTS: Project[] = [
       featured: true,
     },
     {
-      id: 10,
+      id: 11,
       title: "Car Price Prediction",
       description: "Smart Car Price Prediction App built with Machine Learning — delivering fast, accurate, and real-time price estimates with an interactive UI.",
       category: "Machine Learning",
@@ -145,7 +157,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Car.png",
     },
     {
-      id: 11,
+      id: 12,
       title: "NoteBook",
       description: "A full-stack notes app featuring real-time syncing ⚡, secure authentication 🔒, and a responsive U",
       category: "Web Development",
@@ -157,7 +169,7 @@ const PROJECTS: Project[] = [
       featured: true,
     },
     {
-      id: 12,
+      id: 13,
       title: "Digit Recognizer",
       description: "This project builds a digit recognition system 🔢 using machine learning 🤖 and compares performance with and without PCA 📊 to balance accuracy 🎯 and efficiency",
       category: "ML Experiments",
@@ -167,7 +179,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/digits.png",
     },
     {
-      id: 13,
+      id: 14,
       title: "AI Workplace Productivity Analysis",
       description: "AI-powered workplace behavior & productivity analysis using Machine Learning to predict employee stress, performance trends, and productivity insights.",
       category: "Machine Learning",
@@ -178,7 +190,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/wellness.png",
     },
     {
-      id: 14,
+      id: 15,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "ML Experiments",
