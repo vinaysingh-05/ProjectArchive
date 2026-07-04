@@ -168,8 +168,21 @@ const PROJECTS: Project[] = [
       thumbnail: "/notwbook.png",
       featured: true,
     },
-    {
+{
       id: 13,
+      title: "AI-Resume-Screening-Automation",
+      description: "AI-powered resume screening automation built with Relay.app, OpenAI, Google Forms, Google Sheets, Google Drive, and Gmail. Automatically analyzes resumes, generates ATS scores, identifies skill gaps, and emails personalized feedback.",
+      category: "Automation",
+      technologies: ["OpenAI","Relay.app", "Google Forms", "Google Sheets", "Google Drive", "Gmail" ],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/AI-Resume-Screening-Automation",
+      demoUrl: "https://forms.gle/1u6kzRDWs2HBy2EM9",
+      thumbnail: "/automation.png",
+      featured: true,
+    },
+
+    {
+      id: 14,
       title: "Digit Recognizer",
       description: "This project builds a digit recognition system 🔢 using machine learning 🤖 and compares performance with and without PCA 📊 to balance accuracy 🎯 and efficiency",
       category: "ML Experiments",
@@ -179,7 +192,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/digits.png",
     },
     {
-      id: 14,
+      id: 15,
       title: "AI Workplace Productivity Analysis",
       description: "AI-powered workplace behavior & productivity analysis using Machine Learning to predict employee stress, performance trends, and productivity insights.",
       category: "Machine Learning",
@@ -190,7 +203,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/wellness.png",
     },
     {
-      id: 15,
+      id: 16,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "ML Experiments",
@@ -220,6 +233,7 @@ const CAT_COLORS: Record<string, string> = {
   "Machine Learning": "bg-blue-500/15 border-blue-500/30 text-blue-300",
   "Data Science": "bg-emerald-500/15 border-emerald-500/30 text-emerald-300",
   "Web Development": "bg-orange-500/15 border-orange-500/30 text-orange-300",
+  "Automation": "bg-green-500/15 border-green-500/30 text-green-300"
 };
 
 const TECH_COLORS: Record<string, string> = {
@@ -231,6 +245,7 @@ const TECH_COLORS: Record<string, string> = {
   "Node.js": "bg-green-500/10 text-green-300 border-green-500/20",
   "Tailwind CSS": "bg-teal-500/10 text-teal-300 border-teal-500/20",
   "Flask": "bg-gray-500/10 text-gray-300 border-gray-500/20",
+  "Automation": "bg-green-500/10 text-green-300 border-green-500/20"
 };
 
 const PERSONAL_DETAILS = {
