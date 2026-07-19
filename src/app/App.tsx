@@ -193,9 +193,21 @@ const PROJECTS: Project[] = [
       thumbnail: "/dental.png",
       featured: true,
     },
+      {
+      id: 15,
+      title: "Logistic Regression Visualizer",
+      description: "Live hyperparameter tuning (solvers, regularization, C values) with instant visual updates via Streamlit.",
+      category: "Machine Learning",
+      technologies: ["Logistic Regression","Streamlit", "Python" ],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/logistic-regression-visualizer",
+      demoUrl: "https://logistic-regression-visualizer-nwynnwur9rgu2detcgjq3p.streamlit.app/",
+      thumbnail: "/logistic regression.png",
+      featured: true,
+    },
 
     {
-      id: 15,
+      id: 16,
       title: "Digit Recognizer",
       description: "This project builds a digit recognition system 🔢 using machine learning 🤖 and compares performance with and without PCA 📊 to balance accuracy 🎯 and efficiency",
       category: "ML Experiments",
@@ -205,7 +217,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/digits.png",
     },
     {
-      id: 16,
+      id: 17,
       title: "AI Workplace Productivity Analysis",
       description: "AI-powered workplace behavior & productivity analysis using Machine Learning to predict employee stress, performance trends, and productivity insights.",
       category: "Machine Learning",
@@ -216,7 +228,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/wellness.png",
     },
     {
-      id: 17,
+      id: 18,
       title: " AI Dental Appointment Automation",
       description: "A modern AI-powered dental appointment platform that automates patient enquiries, validates leads, manages appointments, sends confirmation emails, and provides an AI chatbot using React, TypeScript, n8n, OpenAI, Google Sheets, and Gmail..",
       category: "Automation",
@@ -226,7 +238,7 @@ const PROJECTS: Project[] = [
       demoUrl: "https://github.com/vinaysingh-05/Dental-Appointment-Automation",
       thumbnail: "/Dental-automation-UI.png",
     },{
-      id: 18,
+      id: 19,
       title: "AI Dental Chatbot Automation",
       description: "Intelligent Lead Generation & AI Workflow Automation",
       category: "Automation",
@@ -237,7 +249,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/chatbot.png",
     },
     {
-      id: 19,
+      id: 20,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "ML Experiments",
