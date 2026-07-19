@@ -34,14 +34,14 @@ interface Project {
 const PROJECTS: Project[] = [
     {
       id: 1,
-      title: "Friendly",
-      description: "Privacy-first AI mental wellness companion for students that detects stress early, offers supportive chat, tracks mood, and provides calming tools — all with zero data sharing.",
+      title: "Climate Guardian AI",
+      description: "Real-time climate intelligence powered by AI. Assess flood, heat, and air quality risks for any location on Earth — instantly..",
       category: "Web Development",
-      technologies: ["Next.js", "TypeScript", "python", "NLTK", "spaCy"],
+      technologies: [ "TypeScript", "GeminiAPI", "GoogleMap API ", "WeatherAPI","SDG 13 Climate Action"],
       status: "Completed",
-      githubUrl: "https://github.com/vinaysingh-05/Friendly-mental-health",
-      demoUrl: "https://friendly-app-seven.vercel.app/",
-      thumbnail: "/friendly.png",
+      githubUrl: "https://github.com/vinaysingh-05/Climate-Guardian-AI",
+      demoUrl: "https://climate-guardian-ai.vercel.app/",
+      thumbnail: "/Weater.png",
       featured: true,
       featuredType: "Best Project",
     },
@@ -56,20 +56,9 @@ const PROJECTS: Project[] = [
       demoUrl: "https://vinaysingh-05.github.io/portfolio/",
       thumbnail: "/Portfolio.png",
     },
-    {
-      id: 3,
-      title: "Project Archive",
-      description: "A practical developer portfolio focused on simple navigation, direct project access, and a cleaner personal introduction.",
-      category: "Web Development",
-      technologies: ["React", "TypeScript", "Next.js", "tailwind CSS"],
-      status: "In Progress",
-      githubUrl: "https://github.com/vinaysingh-05/Showcase-Website",
-      demoUrl: "#",
-      thumbnail: "/project.png",
-    },
-
+    
    {
-      id: 4,
+      id: 3,
       title: "InterviewAI",
       description: "Generate hyper-relevant interview questions tailored to your role, experience, and target company. Practice smarter with AI-generated answers and structured guidance.",
       category: "Web Development",
@@ -78,9 +67,20 @@ const PROJECTS: Project[] = [
       githubUrl: "https://github.com/vinaysingh-05/InterviewAI",
       demoUrl: "https://ai-interview-question-generator-chi.vercel.app/",
       thumbnail: "/interviewAI.png",
+    },  
+    {
+      id: 4,
+      title: "Project Archive",
+      description: "A practical developer portfolio focused on simple navigation, direct project access, and a cleaner personal introduction.",
+      category: "Web Development",
+      technologies: ["React", "TypeScript", "Next.js", "tailwind CSS"],
+      status: "In Progress",
+      githubUrl: "https://github.com/vinaysingh-05/Showcase-Website",
+      demoUrl: "https://projectarchive-website-kappa.vercel.app/",
+      thumbnail: "/project.png",
     },    
     {
-      id: 5,
+      id: 6,
       title: "Postify App",
       description: "✨ Postify — A peaceful social media app focused on positivity, emotional comfort, and expression without toxicity, comments, or follow pressure.",
       category: "App Development",
@@ -91,7 +91,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Postify.png",
     },
     {
-      id: 6,
+      id: 7,
       title: "Postify Website",
       description: "✨ Postify — A peaceful social platform to share thoughts, photos, and emotions freely without toxicity, comments, or follow pressure. 💙 Just post, express yourself, and receive positive vibes through likes in a calm & safe digital space 🚀.",
       category: "Web Development",
@@ -101,8 +101,21 @@ const PROJECTS: Project[] = [
       demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
       thumbnail: "/postify website.png",
     },
+       {
+      id: 8,
+      title: "Friendly",
+      description: "Privacy-first AI mental wellness companion for students that detects stress early, offers supportive chat, tracks mood, and provides calming tools — all with zero data sharing.",
+      category: "Web Development",
+      technologies: ["Next.js", "TypeScript", "python", "NLTK", "spaCy"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Friendly-mental-health",
+      demoUrl: "https://friendly-app-seven.vercel.app/",
+      thumbnail: "/friendly.png",
+      featured: true,
+      featuredType: "Best Project",
+    },
     {
-      id: 7,
+      id: 9,
       title: "AirBnB Price Prediction",
       description: "Predicts Airbnb prices instantly from location, room type, and amenities using Python, scikit-learn, and Streamlit.",
       category: "Machine Learning",
@@ -113,7 +126,7 @@ const PROJECTS: Project[] = [
       thumbnail: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=450&fit=crop&auto=format",
     },
     {
-      id: 8,
+      id: 10,
       title: "Hitlist",
       description: "A full-stack habit tracker built with modern web tech, featuring monthly resets, animated analytics, secure authentication, and row-level security",
       category: "Web Development",
@@ -124,7 +137,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Hitlist.png",
     },
     {
-      id: 9,
+      id: 11,
       title: "Roboto",
       description: "ROBOTO is a futuristic robotics showcase website.",
       category: "Web Development",
@@ -135,7 +148,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Roboto.png",
     },
     {
-      id: 10,
+      id: 12,
       title: "Diabetes-Risk-Predictor-Neural-Lite",
       description: "Hybrid collaborative filtering engine delivering personalized film suggestions with 87% satisfaction A high-performance Diabetes Risk Predictor using a Quantized Neural Network (TFLite) .",
       category: "ML Experiments",
@@ -146,7 +159,7 @@ const PROJECTS: Project[] = [
       featured: true,
     },
     {
-      id: 11,
+      id: 13,
       title: "Car Price Prediction",
       description: "Smart Car Price Prediction App built with Machine Learning — delivering fast, accurate, and real-time price estimates with an interactive UI.",
       category: "Machine Learning",
@@ -157,7 +170,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Car.png",
     },
     {
-      id: 12,
+      id: 14,
       title: "NoteBook",
       description: "A full-stack notes app featuring real-time syncing ⚡, secure authentication 🔒, and a responsive U",
       category: "Web Development",
@@ -169,7 +182,7 @@ const PROJECTS: Project[] = [
       featured: true,
     },
 {
-      id: 13,
+      id: 15,
       title: "AI-Resume-Screening-Automation",
       description: "AI-powered resume screening automation built with Relay.app, OpenAI, Google Forms, Google Sheets, Google Drive, and Gmail. Automatically analyzes resumes, generates ATS scores, identifies skill gaps, and emails personalized feedback.",
       category: "Automation",
@@ -182,7 +195,7 @@ const PROJECTS: Project[] = [
     },
 
     {
-      id: 14,
+      id: 16,
       title: "SmileDental",
       description: "AI-powered dental appointment booking website integrated with n8n automation, OpenAI, Google Sheets, and email notifications for seamless lead management",
       category: "Web Development",
@@ -194,7 +207,7 @@ const PROJECTS: Project[] = [
       featured: true,
     },
       {
-      id: 15,
+      id: 17,
       title: "Logistic Regression Visualizer",
       description: "Live hyperparameter tuning (solvers, regularization, C values) with instant visual updates via Streamlit.",
       category: "Machine Learning",
@@ -207,7 +220,7 @@ const PROJECTS: Project[] = [
     },
 
     {
-      id: 16,
+      id: 18,
       title: "Digit Recognizer",
       description: "This project builds a digit recognition system 🔢 using machine learning 🤖 and compares performance with and without PCA 📊 to balance accuracy 🎯 and efficiency",
       category: "ML Experiments",
@@ -217,7 +230,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/digits.png",
     },
     {
-      id: 17,
+      id: 19,
       title: "AI Workplace Productivity Analysis",
       description: "AI-powered workplace behavior & productivity analysis using Machine Learning to predict employee stress, performance trends, and productivity insights.",
       category: "Machine Learning",
@@ -228,7 +241,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/wellness.png",
     },
     {
-      id: 18,
+      id: 20,
       title: " AI Dental Appointment Automation",
       description: "A modern AI-powered dental appointment platform that automates patient enquiries, validates leads, manages appointments, sends confirmation emails, and provides an AI chatbot using React, TypeScript, n8n, OpenAI, Google Sheets, and Gmail..",
       category: "Automation",
@@ -238,7 +251,7 @@ const PROJECTS: Project[] = [
       demoUrl: "https://github.com/vinaysingh-05/Dental-Appointment-Automation",
       thumbnail: "/Dental-automation-UI.png",
     },{
-      id: 19,
+      id: 21,
       title: "AI Dental Chatbot Automation",
       description: "Intelligent Lead Generation & AI Workflow Automation",
       category: "Automation",
@@ -249,7 +262,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/chatbot.png",
     },
     {
-      id: 20,
+      id: 22,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "ML Experiments",
