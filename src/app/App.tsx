@@ -261,8 +261,19 @@ const PROJECTS: Project[] = [
       demoUrl: "https://github.com/vinaysingh-05/Chatbot-Automation-Dental-website",
       thumbnail: "/chatbot.png",
     },
-    {
+      {
       id: 22,
+      title: "ML Research Website",
+      description: "Modern Machine Learning research paper built with HTML, CSS, JavaScript, Chart.js, and SVG illustrations. Deployable on GitHub Pages.",
+      category: "ML Experiments",
+      technologies: ["HTML", "CSS", "JavaScript", "Chart.js", "SVG"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/ML-research-website",
+      demoUrl: "https://vinaysingh-05.github.io/ML-research-website/",
+      thumbnail: "/ml-home.png",
+    },
+    {
+      id: 23,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "ML Experiments",
