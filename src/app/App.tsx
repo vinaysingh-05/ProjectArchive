@@ -273,7 +273,19 @@ const PROJECTS: Project[] = [
       githubUrl: "https://github.com/vinaysingh-05/Dental-Appointment-Automation",
       demoUrl: "https://github.com/vinaysingh-05/Dental-Appointment-Automation",
       thumbnail: "/Dental-automation-UI.png",
-    },{
+    },
+    {
+      id: 21,
+      title: "fantasy-character-generator",
+      description: "A fantasy character generator that creates unique characters with distinct traits and backstories.",
+      category: "Web Development",
+      technologies: ["Google AI Studio", "GeminiAPI", "Next.js", "Tailwind CSS"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/fantasy-character-generator",
+      demoUrl: "https://fantasy-character-generator-omega.vercel.app/",
+      thumbnail: "/sticker.png",
+    },
+    {
       id: 22,
       title: "AI Dental Chatbot Automation",
       description: "Intelligent Lead Generation & AI Workflow Automation",
