@@ -218,9 +218,21 @@ const PROJECTS: Project[] = [
       thumbnail: "/logistic regression.png",
       featured: true,
     },
+        {
+      id: 18,
+      title: "My-MVP-Agent",
+      description: "AI-powered chatbot with a modern ChatGPT/Gemini-inspired Streamlit UI..",
+      category: "Machine Learning",
+      technologies: ["GrokAPI","Streamlit", "Python" ],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/My-MVP-Agent",
+      demoUrl: "https://my-mvp-agent-ev6kku4xmurqir7dpdde6a.streamlit.app/",
+      thumbnail: "/mvp-agent.png",
+      featured: true,
+    },
 
     {
-      id: 18,
+      id: 19,
       title: "Digit Recognizer",
       description: "This project builds a digit recognition system 🔢 using machine learning 🤖 and compares performance with and without PCA 📊 to balance accuracy 🎯 and efficiency",
       category: "ML Experiments",
@@ -230,7 +242,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/digits.png",
     },
     {
-      id: 19,
+      id: 20,
       title: "AI Workplace Productivity Analysis",
       description: "AI-powered workplace behavior & productivity analysis using Machine Learning to predict employee stress, performance trends, and productivity insights.",
       category: "Machine Learning",
@@ -241,7 +253,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/wellness.png",
     },
     {
-      id: 20,
+      id: 21,
       title: " AI Dental Appointment Automation",
       description: "A modern AI-powered dental appointment platform that automates patient enquiries, validates leads, manages appointments, sends confirmation emails, and provides an AI chatbot using React, TypeScript, n8n, OpenAI, Google Sheets, and Gmail..",
       category: "Automation",
@@ -251,7 +263,7 @@ const PROJECTS: Project[] = [
       demoUrl: "https://github.com/vinaysingh-05/Dental-Appointment-Automation",
       thumbnail: "/Dental-automation-UI.png",
     },{
-      id: 21,
+      id: 22,
       title: "AI Dental Chatbot Automation",
       description: "Intelligent Lead Generation & AI Workflow Automation",
       category: "Automation",
@@ -262,7 +274,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/chatbot.png",
     },
       {
-      id: 22,
+      id: 23,
       title: "ML Research Website",
       description: "Modern Machine Learning research paper built with HTML, CSS, JavaScript, Chart.js, and SVG illustrations. Deployable on GitHub Pages.",
       category: "ML Experiments",
@@ -273,7 +285,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/ml-home.png",
     },
     {
-      id: 23,
+      id: 24,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "ML Experiments",
