@@ -80,7 +80,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/project.png",
     },    
     {
-      id: 6,
+      id: 5,
       title: "Postify App",
       description: "✨ Postify — A peaceful social media app focused on positivity, emotional comfort, and expression without toxicity, comments, or follow pressure.",
       category: "App Development",
@@ -91,7 +91,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Postify.png",
     },
     {
-      id: 7,
+      id: 6,
       title: "Postify Website",
       description: "✨ Postify — A peaceful social platform to share thoughts, photos, and emotions freely without toxicity, comments, or follow pressure. 💙 Just post, express yourself, and receive positive vibes through likes in a calm & safe digital space 🚀.",
       category: "Web Development",
@@ -100,6 +100,17 @@ const PROJECTS: Project[] = [
       githubUrl: "https://github.com/vinaysingh-05/Postify-App-Website",
       demoUrl: "https://vinaysingh-05.github.io/Postify-App-Website/",
       thumbnail: "/postify website.png",
+    },
+     {
+      id: 7,
+      title: "AI Startup Studio",
+      description: " AI Startup Studio generates your complete business blueprint — market research, pitch deck, MVP roadmap, tech stack — in under 60 seconds..",
+      category: "Web Development",
+      technologies: [ "GeminiAPI","React", "TypeScript", "Next.js", "tailwind CSS"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/AI-Startup-Studio",
+      demoUrl: "https://ai-startup-studio-five.vercel.app/",
+      thumbnail: "/AI Startup Studio.png",
     },
        {
       id: 8,
