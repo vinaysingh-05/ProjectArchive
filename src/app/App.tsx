@@ -316,18 +316,6 @@ const PROJECTS: Project[] = [
       status: "In Progress",
       githubUrl: "https://github.com/vinaysingh-05/ML-Topics",
       thumbnail: "/ml.png",
-    },
-
-      {
-      id: 25,
-      title: "Real Estate Valuation Studio",
-      description: "Real-time real estate valuation studio built with Python, Scikit-Learn, and Streamlit.",
-      category: "Machine Learning",
-      technologies: ["Python", "scikit-learn", "Streamlit", "kaggle"],
-      status: "Completed",
-      githubUrl: "https://github.com/vinaysingh-05/House-Price-Prediction/tree/main",
-      demoUrl: "https://house-price-prediction-komh2fpnekpaegbgr4pc48.streamlit.app/",
-      thumbnail: "/House.png",
     }
 
 // there we adds more projects in the same format as above, and they will automatically be displayed in the portfolio.
