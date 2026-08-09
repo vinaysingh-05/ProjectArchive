@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import TechStackPage from "./pages/TechStackPage.tsx";
 import {
   Search, Github, ExternalLink, X, Star,
   ChevronUp, Moon, Sun, Code2, Layers, Calendar,
@@ -18,6 +19,7 @@ interface Project {
   title: string;
   description: string;
   category: string;
+  subcategory?: MachineLearningSubcategory;
   technologies: string[];
   status: "Completed" | "In Progress" | "Archived";
   githubUrl: string;
@@ -26,6 +28,8 @@ interface Project {
   featured?: boolean;
   featuredType?: string;
 }
+
+type MachineLearningSubcategory = "Regression" | "Classification" | "Clustering" | "Other";
 
 // ─────────────────────────────────────────────────────────────
 // PROJECT DATA — add new objects here to auto-create new cards
@@ -130,6 +134,7 @@ const PROJECTS: Project[] = [
       title: "AirBnB Price Prediction",
       description: "Predicts Airbnb prices instantly from location, room type, and amenities using Python, scikit-learn, and Streamlit.",
       category: "Machine Learning",
+      subcategory: "Regression",
       technologies: ["Python", "scikit-learn", "Streamlit"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/ai_powered_airbnb_price_prediction",
@@ -163,6 +168,7 @@ const PROJECTS: Project[] = [
       title: "Diabetes-Risk-Predictor-Neural-Lite",
       description: "Hybrid collaborative filtering engine delivering personalized film suggestions with 87% satisfaction A high-performance Diabetes Risk Predictor using a Quantized Neural Network (TFLite) .",
       category: "ML Experiments",
+      subcategory: "Classification",
       technologies: ["Python", "Streamlit", "TFLite", "TensorFlow"],
       status: "Archived",
       githubUrl: "https://github.com/vinaysingh-05/Diabetes-Risk-Predictor-Neural-Lite",
@@ -174,6 +180,7 @@ const PROJECTS: Project[] = [
       title: "Car Price Prediction",
       description: "Smart Car Price Prediction App built with Machine Learning — delivering fast, accurate, and real-time price estimates with an interactive UI.",
       category: "Machine Learning",
+      subcategory: "Regression",
       technologies: ["Python", "scikit-learn", "Streamlit"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/car_price_prediction",
@@ -222,6 +229,7 @@ const PROJECTS: Project[] = [
       title: "Logistic Regression Visualizer",
       description: "Live hyperparameter tuning (solvers, regularization, C values) with instant visual updates via Streamlit.",
       category: "Machine Learning",
+      subcategory: "Classification",
       technologies: ["Logistic Regression","Streamlit", "Python" ],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/logistic-regression-visualizer",
@@ -229,11 +237,12 @@ const PROJECTS: Project[] = [
       thumbnail: "/logistic regression.png",
       featured: true,
     },
-        {
+      {
       id: 18,
-      title: "My-MVP-Agent",
+      title: "My MVP Agent",
       description: "AI-powered chatbot with a modern ChatGPT/Gemini-inspired Streamlit UI..",
       category: "Machine Learning",
+      subcategory: "Other",
       technologies: ["GrokAPI","Streamlit", "Python" ],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/My-MVP-Agent",
@@ -241,22 +250,37 @@ const PROJECTS: Project[] = [
       thumbnail: "/mvp-agent.png",
       featured: true,
     },
+      {
+      id: 19,
+      title: "House price prediction App",
+      description: "End-to-end House Price Prediction using multiple ML regression models, CatBoost, hyperparameter tuning, ensemble learning, and an interactive Streamlit app.",
+      category: "Machine Learning",
+      subcategory: "Regression",
+      technologies: ["catboost","Streamlit", "Python" ],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/House-price-prediction-App/tree/main",
+      demoUrl: "https://house-price-prediction-app-hix54k2x6btekcoq7mdvep.streamlit.app/",
+      thumbnail: "/house-price.png",
+      featured: true,
+    },
 
     {
-      id: 19,
+      id: 20,
       title: "Digit Recognizer",
       description: "This project builds a digit recognition system 🔢 using machine learning 🤖 and compares performance with and without PCA 📊 to balance accuracy 🎯 and efficiency",
       category: "ML Experiments",
+      subcategory: "Classification",
       technologies: ["Python", "scikit-learn", "PCA"],
       status: "Archived",
       githubUrl: "https://github.com/vinaysingh-05/Digit-Recognizer-withPCA-withoutPCA",
       thumbnail: "/digits.png",
     },
     {
-      id: 20,
+      id: 21,
       title: "AI Workplace Productivity Analysis",
       description: "AI-powered workplace behavior & productivity analysis using Machine Learning to predict employee stress, performance trends, and productivity insights.",
       category: "Machine Learning",
+      subcategory: "Classification",
       technologies: ["Python", "scikit-learn", "Streamlit", "kaggle"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/ai-workplace-productivity-analysis",
@@ -264,7 +288,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/wellness.png",
     },
     {
-      id: 21,
+      id: 22,
       title: " AI Dental Appointment Automation",
       description: "A modern AI-powered dental appointment platform that automates patient enquiries, validates leads, manages appointments, sends confirmation emails, and provides an AI chatbot using React, TypeScript, n8n, OpenAI, Google Sheets, and Gmail..",
       category: "Automation",
@@ -275,7 +299,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/Dental-automation-UI.png",
     },
     {
-      id: 21,
+      id: 23,
       title: "fantasy-character-generator",
       description: "A fantasy character generator that creates unique characters with distinct traits and backstories.",
       category: "Web Development",
@@ -286,7 +310,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/sticker.png",
     },
     {
-      id: 22,
+      id: 24,
       title: "AI Dental Chatbot Automation",
       description: "Intelligent Lead Generation & AI Workflow Automation",
       category: "Automation",
@@ -297,10 +321,11 @@ const PROJECTS: Project[] = [
       thumbnail: "/chatbot.png",
     },
       {
-      id: 23,
+      id: 25,
       title: "ML Research Website",
       description: "Modern Machine Learning research paper built with HTML, CSS, JavaScript, Chart.js, and SVG illustrations. Deployable on GitHub Pages.",
       category: "ML Experiments",
+        subcategory: "Other",
       technologies: ["HTML", "CSS", "JavaScript", "Chart.js", "SVG"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/ML-research-website",
@@ -308,10 +333,11 @@ const PROJECTS: Project[] = [
       thumbnail: "/ml-home.png",
     },
     {
-      id: 24,
+      id: 26,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "ML Experiments",
+      subcategory: "Other",
       technologies: ["Python", "scikit-learn", "Streamlit", "kaggle"],
       status: "In Progress",
       githubUrl: "https://github.com/vinaysingh-05/ML-Topics",
@@ -326,6 +352,8 @@ const PROJECTS: Project[] = [
 const PROJECT_COUNT = PROJECTS.length;
 
 const CATEGORY_FILTERS = Array.from(new Set(PROJECTS.map((project) => project.category)));
+const ML_SUBCATEGORY_FILTERS: MachineLearningSubcategory[] = ["Regression", "Classification", "Clustering", "Other"];
+const MACHINE_LEARNING_CATEGORIES = new Set(["Machine Learning", "ML Experiments"]);
 
 // ─────────────────────────────────────────────────────────────
 // CONSTANTS
@@ -339,6 +367,13 @@ const CAT_COLORS: Record<string, string> = {
   "Data Science": "bg-emerald-500/15 border-emerald-500/30 text-emerald-300",
   "Web Development": "bg-orange-500/15 border-orange-500/30 text-orange-300",
   "Automation": "bg-green-500/15 border-green-500/30 text-green-300"
+};
+
+const ML_SUBCATEGORY_COLORS: Record<MachineLearningSubcategory, string> = {
+  Regression: "bg-cyan-500/15 border-cyan-500/30 text-cyan-300",
+  Classification: "bg-violet-500/15 border-violet-500/30 text-violet-300",
+  Clustering: "bg-amber-500/15 border-amber-500/30 text-amber-300",
+  Other: "bg-white/10 border-white/15 text-white/65",
 };
 
 const TECH_COLORS: Record<string, string> = {
@@ -511,16 +546,17 @@ function Navbar({ isDark, setIsDark }: { isDark: boolean; setIsDark: (v: boolean
 // ─────────────────────────────────────────────────────────────
 
 function StatCard({
-  icon: Icon, label, value, suffix = "", delay,
+  icon: Icon, label, value, suffix = "", delay, onClick,
 }: {
   icon: React.ComponentType<{ className?: string }>;
   label: string;
   value: number;
   suffix?: string;
   delay: number;
+  onClick?: () => void;
 }) {
   const [active, setActive] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLButtonElement>(null);
   const count = useCounter(value, 1800, active);
 
   useEffect(() => {
@@ -530,13 +566,16 @@ function StatCard({
   }, []);
 
   return (
-    <motion.div
+    <motion.button
+      type="button"
       ref={ref}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.5, ease: "easeOut" }}
+      onClick={onClick}
+      className="group w-full text-left"
     >
-      <div className="group p-5 rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-sm hover:border-violet-500/25 hover:bg-white/[0.06] transition-all duration-300 text-center">
+      <div className={`group p-5 rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-sm hover:border-violet-500/25 hover:bg-white/[0.06] transition-all duration-300 text-center ${onClick ? "cursor-pointer" : ""}`}>
         <div className="inline-flex p-2.5 rounded-xl bg-violet-500/10 mb-3 group-hover:bg-violet-500/15 transition-colors">
           <Icon className="w-4 h-4 text-violet-400" />
         </div>
@@ -548,7 +587,7 @@ function StatCard({
         </div>
         <div className="text-xs text-white/35 mt-1 font-medium">{label}</div>
       </div>
-    </motion.div>
+    </motion.button>
   );
 }
 
@@ -571,7 +610,7 @@ const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
   size: 2 + Math.random() * 4,
 }));
 
-function HeroSection() {
+function HeroSection({ onOpenTechStack }: { onOpenTechStack: () => void }) {
   return (
     <section id="intro" className="relative pt-32 pb-20 px-4 overflow-hidden">
       {/* Glow behind heading */}
@@ -642,7 +681,7 @@ function HeroSection() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto lg:mx-0">
             <StatCard icon={Layers} label="Projects" value={PROJECT_COUNT} delay={0.1} />
-            <StatCard icon={Cpu} label="Technologies" value={20} suffix="+" delay={0.2} />
+            <StatCard icon={Cpu} label="Technologies" value={20} suffix="+" delay={0.2} onClick={onOpenTechStack} />
             <StatCard icon={Filter} label="Categories" value={CATEGORY_FILTERS.length} delay={0.3} />
             <StatCard icon={GoalIcon} label="Hackathons" value={20} suffix="+" delay={0.4} />
           </div>
@@ -714,13 +753,17 @@ function HeroSection() {
 // ─────────────────────────────────────────────────────────────
 
 function SearchAndFilter({
-  query, setQuery, activeFilter, setActiveFilter,
+  query, setQuery, activeFilter, setActiveFilter, activeSubFilter, setActiveSubFilter,
 }: {
   query: string;
   setQuery: (q: string) => void;
   activeFilter: string;
   setActiveFilter: (f: string) => void;
+  activeSubFilter: MachineLearningSubcategory | "All";
+  setActiveSubFilter: (f: MachineLearningSubcategory | "All") => void;
 }) {
+  const showMachineLearningSubfilters = activeFilter === "Machine Learning" || activeFilter === "ML Experiments";
+
   return (
     <section className="px-4 mb-14">
       <div className="max-w-7xl mx-auto space-y-4">
@@ -749,7 +792,12 @@ function SearchAndFilter({
           {FILTERS.map((filter) => (
             <motion.button
               key={filter}
-              onClick={() => setActiveFilter(filter)}
+              onClick={() => {
+                setActiveFilter(filter);
+                if (filter !== "Machine Learning" && filter !== "ML Experiments") {
+                  setActiveSubFilter("All");
+                }
+              }}
               whileTap={{ scale: 0.94 }}
               className={`relative px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all duration-200 border ${
                 activeFilter === filter
@@ -769,6 +817,36 @@ function SearchAndFilter({
             </motion.button>
           ))}
         </div>
+
+        {showMachineLearningSubfilters && (
+          <div className="flex gap-2 flex-wrap justify-center pt-1">
+            <span className="px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.2em] text-white/30 border border-white/[0.06] bg-white/[0.02]">
+              ML Subcategory
+            </span>
+            {(["All", ...ML_SUBCATEGORY_FILTERS] as const).map((filter) => (
+              <motion.button
+                key={filter}
+                onClick={() => setActiveSubFilter(filter)}
+                whileTap={{ scale: 0.94 }}
+                className={`relative px-4 py-1.5 rounded-full text-xs font-mono font-medium transition-all duration-200 border ${
+                  activeSubFilter === filter
+                    ? "border-cyan-500/40 text-cyan-300"
+                    : "bg-white/[0.03] border-white/[0.07] text-white/45 hover:text-white/75 hover:border-white/[0.13] hover:bg-white/[0.06]"
+                }`}
+                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              >
+                {activeSubFilter === filter && (
+                  <motion.span
+                    layoutId="mlFilterHighlight"
+                    className="absolute inset-0 rounded-full bg-cyan-500/10"
+                    transition={{ type: "spring", bounce: 0.25, duration: 0.4 }}
+                  />
+                )}
+                <span className="relative">{filter}</span>
+              </motion.button>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
@@ -808,6 +886,7 @@ function ProjectCard({
   index: number;
 }) {
   const catCls = CAT_COLORS[project.category] ?? "bg-white/10 border-white/20 text-white/60";
+  const mlSubcategory = MACHINE_LEARNING_CATEGORIES.has(project.category) ? (project.subcategory ?? "Other") : null;
 
   return (
     <motion.div
@@ -839,12 +918,22 @@ function ProjectCard({
 
           {/* Category pill */}
           <div className="absolute top-2.5 left-2.5">
-            <span
-              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${catCls}`}
-              style={{ fontFamily: "'JetBrains Mono', monospace" }}
-            >
-              {project.category}
-            </span>
+            <div className="flex flex-col gap-1">
+              <span
+                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${catCls}`}
+                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              >
+                {project.category}
+              </span>
+              {mlSubcategory && (
+                <span
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${ML_SUBCATEGORY_COLORS[mlSubcategory]}`}
+                  style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                >
+                  {mlSubcategory}
+                </span>
+              )}
+            </div>
           </div>
 
           {/* ID */}
@@ -915,6 +1004,8 @@ function ProjectCard({
 // ─────────────────────────────────────────────────────────────
 
 function FeaturedCard({ project, onClick }: { project: Project; onClick: () => void }) {
+  const mlSubcategory = MACHINE_LEARNING_CATEGORIES.has(project.category) ? (project.subcategory ?? "Other") : null;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 32 }}
@@ -950,12 +1041,22 @@ function FeaturedCard({ project, onClick }: { project: Project; onClick: () => v
             </div>
           </div>
           <div className="absolute bottom-4 left-4">
-            <span
-              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${CAT_COLORS[project.category] ?? ""}`}
-              style={{ fontFamily: "'JetBrains Mono', monospace" }}
-            >
-              {project.category}
-            </span>
+            <div className="flex flex-col gap-1">
+              <span
+                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${CAT_COLORS[project.category] ?? ""}`}
+                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+              >
+                {project.category}
+              </span>
+              {mlSubcategory && (
+                <span
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${ML_SUBCATEGORY_COLORS[mlSubcategory]}`}
+                  style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                >
+                  {mlSubcategory}
+                </span>
+              )}
+            </div>
           </div>
         </div>
 
@@ -1176,7 +1277,9 @@ export default function App() {
   const [isDark, setIsDark] = useState(true);
   const [query, setQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("All Projects");
+  const [activeSubFilter, setActiveSubFilter] = useState<MachineLearningSubcategory | "All">("All");
   const [isLoading, setIsLoading] = useState(true);
+  const [pathname, setPathname] = useState(() => window.location.pathname);
 
   // Apply dark class to <html>
   useEffect(() => {
@@ -1189,7 +1292,19 @@ export default function App() {
     return () => clearTimeout(t);
   }, []);
 
-  const isFiltered = query.trim() !== "" || activeFilter !== "All Projects";
+  useEffect(() => {
+    const syncPath = () => setPathname(window.location.pathname);
+    window.addEventListener("popstate", syncPath);
+    return () => window.removeEventListener("popstate", syncPath);
+  }, []);
+
+  useEffect(() => {
+    if (!MACHINE_LEARNING_CATEGORIES.has(activeFilter)) {
+      setActiveSubFilter("All");
+    }
+  }, [activeFilter]);
+
+  const isFiltered = query.trim() !== "" || activeFilter !== "All Projects" || activeSubFilter !== "All";
 
   const filteredProjects = useMemo(() => {
     const q = query.toLowerCase();
@@ -1206,16 +1321,51 @@ export default function App() {
         p.category === activeFilter ||
         p.technologies.includes(activeFilter);
 
-      return matchQ && matchF;
+      const projectSubcategory = MACHINE_LEARNING_CATEGORIES.has(p.category)
+        ? (p.subcategory ?? "Other")
+        : null;
+      const matchSubF =
+        !MACHINE_LEARNING_CATEGORIES.has(activeFilter) ||
+        activeSubFilter === "All" ||
+        projectSubcategory === activeSubFilter;
+
+      return matchQ && matchF && matchSubF;
     });
-  }, [query, activeFilter]);
+  }, [query, activeFilter, activeSubFilter]);
 
   const featuredProjects = PROJECTS.filter((p) => p.featured);
 
   const handleReset = useCallback(() => {
     setQuery("");
     setActiveFilter("All Projects");
+    setActiveSubFilter("All");
   }, []);
+
+  const navigateTo = useCallback((nextPath: string, scrollTargetId?: string) => {
+    if (window.location.pathname !== nextPath) {
+      window.history.pushState({}, "", nextPath);
+    }
+    setPathname(nextPath);
+    window.setTimeout(() => {
+      if (scrollTargetId) {
+        document.getElementById(scrollTargetId)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 0);
+  }, []);
+
+  const openTechStack = useCallback(() => {
+    navigateTo("/tech-stack");
+  }, [navigateTo]);
+
+  const backToProjects = useCallback(() => {
+    navigateTo("/", "projects");
+  }, [navigateTo]);
+
+  if (pathname === "/tech-stack") {
+    return <TechStackPage projects={PROJECTS} onBack={backToProjects} />;
+  }
 
   return (
     <div
@@ -1226,12 +1376,14 @@ export default function App() {
 
       <div className="relative z-10">
         <Navbar isDark={isDark} setIsDark={setIsDark} />
-        <HeroSection />
+        <HeroSection onOpenTechStack={openTechStack} />
         <SearchAndFilter
           query={query}
           setQuery={setQuery}
           activeFilter={activeFilter}
           setActiveFilter={setActiveFilter}
+          activeSubFilter={activeSubFilter}
+          setActiveSubFilter={setActiveSubFilter}
         />
 
         <div className="max-w-7xl mx-auto px-4">
