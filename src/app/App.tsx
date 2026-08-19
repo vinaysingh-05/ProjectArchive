@@ -335,6 +335,19 @@ const PROJECTS: Project[] = [
 
     {
       id: 26,
+      title: "Smart Laptop Price Predictor",
+      description: "AI-powered laptop price predictor built with a Weighted Voting Regressor ensemble and Streamlit.",
+      category: "Machine Learning",
+      subcategory: "Regression",
+      technologies: ["Python", "Scikit-learn", "Streamlit", "CatBoost"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Laptop-Price-Predictor/tree/main",
+      demoUrl: "https://laptop-price-predictor-dst6tjac22suzmvtyk94ka.streamlit.app/",
+      thumbnail: "/laptop.png",
+    },
+
+    {
+      id: 27,
       title: "Household Electricity Load Forecaster",
       description: "An end-to-end machine learning regression system to predict household energy consumption.",
       category: "ML Experiments",
@@ -346,7 +359,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/household.png",
     }, 
     {
-      id: 27,
+      id: 28,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "ML Experiments",
