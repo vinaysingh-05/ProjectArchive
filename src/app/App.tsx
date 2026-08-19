@@ -332,8 +332,21 @@ const PROJECTS: Project[] = [
       demoUrl: "https://vinaysingh-05.github.io/ML-research-website/",
       thumbnail: "/ml-home.png",
     },
+
     {
       id: 26,
+      title: "Household Electricity Load Forecaster",
+      description: "An end-to-end machine learning regression system to predict household energy consumption.",
+      category: "ML Experiments",
+        subcategory: "Regression",
+      technologies: ["Python", "Scikit-learn", "Pandas", "Streamlit"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Household-Electricity-Load-Forecaster",
+      demoUrl: "https://github.com/vinaysingh-05/Household-Electricity-Load-Forecaster",
+      thumbnail: "/household.png",
+    }, 
+    {
+      id: 27,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "ML Experiments",
