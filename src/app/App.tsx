@@ -371,8 +371,20 @@ const PROJECTS: Project[] = [
       demoUrl: "https://fintech-ai-4fwttw7tdvcdr2xecyj85h.streamlit.app/",
       thumbnail: "/Fintech-ai.png",
     }, 
-    {
+     {
       id: 29,
+      title: "DevStack Hub",
+      description: "A modern, local-first code snippet manager for developers. Built with Tailwind CSS and Vanilla JavaScript, DevStack Hub allows you to store, filter, and copy code snippets instantly. No databases, no cloud logins—just pure, fast, and local productivity.",
+      category: "Web Development",
+      technologies: ["HTML", "Tailwind CSS", "Vanilla JavaScript"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/DevStack-Hub",
+      demoUrl: "https://vinaysingh-05.github.io/DevStack-Hub/",
+      thumbnail: "/devstack.png",
+    }, 
+
+    {
+      id: 30,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "Experiment",
