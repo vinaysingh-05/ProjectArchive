@@ -19,7 +19,7 @@ interface Project {
   title: string;
   description: string;
   category: string;
-  subcategory?: MachineLearningSubcategory;
+  subcategory?: string;
   technologies: string[];
   status: "Completed" | "In Progress" | "Archived";
   githubUrl: string;
@@ -28,8 +28,6 @@ interface Project {
   featured?: boolean;
   featuredType?: string;
 }
-
-type MachineLearningSubcategory = "Regression" | "Classification" | "Clustering" | "Other";
 
 // ─────────────────────────────────────────────────────────────
 // PROJECT DATA — add new objects here to auto-create new cards
@@ -120,7 +118,8 @@ const PROJECTS: Project[] = [
       id: 8,
       title: "Friendly",
       description: "Privacy-first AI mental wellness companion for students that detects stress early, offers supportive chat, tracks mood, and provides calming tools — all with zero data sharing.",
-      category: "Web Development",
+      category: "NLP",
+      subcategory: "Sentiment Analysis",
       technologies: ["Next.js", "TypeScript", "python", "NLTK", "spaCy"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Friendly-mental-health",
@@ -167,8 +166,8 @@ const PROJECTS: Project[] = [
       id: 12,
       title: "Diabetes-Risk-Predictor-Neural-Lite",
       description: "Hybrid collaborative filtering engine delivering personalized film suggestions with 87% satisfaction A high-performance Diabetes Risk Predictor using a Quantized Neural Network (TFLite) .",
-      category: "ML Experiments",
-      subcategory: "Classification",
+      category: "Experiment",
+      subcategory: "DL Experiment",
       technologies: ["Python", "Streamlit", "TFLite", "TensorFlow"],
       status: "Archived",
       githubUrl: "https://github.com/vinaysingh-05/Diabetes-Risk-Predictor-Neural-Lite",
@@ -203,7 +202,8 @@ const PROJECTS: Project[] = [
       id: 15,
       title: "AI-Resume-Screening-Automation",
       description: "AI-powered resume screening automation built with Relay.app, OpenAI, Google Forms, Google Sheets, Google Drive, and Gmail. Automatically analyzes resumes, generates ATS scores, identifies skill gaps, and emails personalized feedback.",
-      category: "Automation",
+      category: "Generative AI",
+      subcategory: "AI Applications",
       technologies: ["OpenAI","Relay.app", "Google Forms", "Google Sheets", "Google Drive", "Gmail" ],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/AI-Resume-Screening-Automation",
@@ -241,8 +241,8 @@ const PROJECTS: Project[] = [
       id: 18,
       title: "My MVP Agent",
       description: "AI-powered chatbot with a modern ChatGPT/Gemini-inspired Streamlit UI..",
-      category: "Machine Learning",
-      subcategory: "Other",
+      category: "Agentic AI",
+      subcategory: "AI Agents",
       technologies: ["GrokAPI","Streamlit", "Python" ],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/My-MVP-Agent",
@@ -268,8 +268,8 @@ const PROJECTS: Project[] = [
       id: 20,
       title: "Digit Recognizer",
       description: "This project builds a digit recognition system 🔢 using machine learning 🤖 and compares performance with and without PCA 📊 to balance accuracy 🎯 and efficiency",
-      category: "ML Experiments",
-      subcategory: "Classification",
+      category: "Experiment",
+      subcategory: "DL Experiment",
       technologies: ["Python", "scikit-learn", "PCA"],
       status: "Archived",
       githubUrl: "https://github.com/vinaysingh-05/Digit-Recognizer-withPCA-withoutPCA",
@@ -313,7 +313,8 @@ const PROJECTS: Project[] = [
       id: 24,
       title: "AI Dental Chatbot Automation",
       description: "Intelligent Lead Generation & AI Workflow Automation",
-      category: "Automation",
+      category: "Agentic AI",
+      subcategory: "Agent Workflows",
       technologies: ["n8n", "GeminiAPI"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Chatbot-Automation-Dental-website",
@@ -324,8 +325,8 @@ const PROJECTS: Project[] = [
       id: 25,
       title: "ML Research Website",
       description: "Modern Machine Learning research paper built with HTML, CSS, JavaScript, Chart.js, and SVG illustrations. Deployable on GitHub Pages.",
-      category: "ML Experiments",
-        subcategory: "Other",
+      category: "Experiment",
+      subcategory: "ML Experiment",
       technologies: ["HTML", "CSS", "JavaScript", "Chart.js", "SVG"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/ML-research-website",
@@ -350,20 +351,32 @@ const PROJECTS: Project[] = [
       id: 27,
       title: "Household Electricity Load Forecaster",
       description: "An end-to-end machine learning regression system to predict household energy consumption.",
-      category: "ML Experiments",
-        subcategory: "Regression",
+      category: "Experiment",
+      subcategory: "ML Experiment",
       technologies: ["Python", "Scikit-learn", "Pandas", "Streamlit"],
       status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/Household-Electricity-Load-Forecaster",
       demoUrl: "https://github.com/vinaysingh-05/Household-Electricity-Load-Forecaster",
       thumbnail: "/household.png",
     }, 
-    {
+     {
       id: 28,
+      title: "FINTECH-AI",
+      description: "An interactive web application built with Streamlit and an Artificial Neural Network (ANN) to predict credit card customer churn.",
+      category: "Deep Learning",
+      subcategory: "ANN",
+      technologies: ["Python", "Keras", "TensorFlow", "Streamlit"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/FINTECH-AI.git",
+      demoUrl: "https://fintech-ai-4fwttw7tdvcdr2xecyj85h.streamlit.app/",
+      thumbnail: "/Fintech-ai.png",
+    }, 
+    {
+      id: 29,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
-      category: "ML Experiments",
-      subcategory: "Other",
+      category: "Experiment",
+      subcategory: "ML Experiment",
       technologies: ["Python", "scikit-learn", "Streamlit", "kaggle"],
       status: "In Progress",
       githubUrl: "https://github.com/vinaysingh-05/ML-Topics",
@@ -377,9 +390,35 @@ const PROJECTS: Project[] = [
 
 const PROJECT_COUNT = PROJECTS.length;
 
-const CATEGORY_FILTERS = Array.from(new Set(PROJECTS.map((project) => project.category)));
-const ML_SUBCATEGORY_FILTERS: MachineLearningSubcategory[] = ["Regression", "Classification", "Clustering", "Other"];
-const MACHINE_LEARNING_CATEGORIES = new Set(["Machine Learning", "ML Experiments"]);
+const SUBCATEGORIES_MAP: Record<string, string[]> = {
+  "Machine Learning": ["Regression", "Classification", "Clustering", "Other"],
+  "Deep Learning": ["ANN", "CNN", "RNN", "LSTM", "GRU", "Autoencoder"],
+  "CV": ["Image Classification", "Object Detection", "Face Recognition", "Segmentation"],
+  "NLP": ["Text Classification", "Sentiment Analysis", "NER", "Text Generation"],
+  "Generative AI": ["LLM", "RAG", "Multimodal", "Fine-tuning", "AI Applications"],
+  "Agentic AI": ["Tool Calling", "AI Agents", "Multi-Agent", "LangGraph", "Agent Workflows"],
+  "Transformers": ["Hugging Face"],
+  "Experiment": ["ML Experiment", "DL Experiment", "NLP Experiment", "CV Experiment", "GenAI Experiment", "Agentic AI Experiment", "Other"],
+};
+
+const ALL_CATEGORIES = [
+  "Web Development",
+  "App Development",
+  "Automation",
+  "Machine Learning",
+  "Deep Learning",
+  "CV",
+  "NLP",
+  "Generative AI",
+  "Agentic AI",
+  "Transformers",
+  "Experiment"
+];
+
+const CATEGORY_FILTERS = Array.from(new Set([
+  ...ALL_CATEGORIES,
+  ...PROJECTS.map((project) => project.category)
+]));
 
 // ─────────────────────────────────────────────────────────────
 // CONSTANTS
@@ -388,18 +427,70 @@ const MACHINE_LEARNING_CATEGORIES = new Set(["Machine Learning", "ML Experiments
 const FILTERS = ["All Projects", ...CATEGORY_FILTERS];
 
 const CAT_COLORS: Record<string, string> = {
-  "AI/ML": "bg-violet-500/15 border-violet-500/30 text-violet-300",
-  "Machine Learning": "bg-blue-500/15 border-blue-500/30 text-blue-300",
-  "Data Science": "bg-emerald-500/15 border-emerald-500/30 text-emerald-300",
   "Web Development": "bg-orange-500/15 border-orange-500/30 text-orange-300",
-  "Automation": "bg-green-500/15 border-green-500/30 text-green-300"
+  "App Development": "bg-pink-500/15 border-pink-500/30 text-pink-300",
+  "Automation": "bg-green-500/15 border-green-500/30 text-green-300",
+  "Machine Learning": "bg-blue-500/15 border-blue-500/30 text-blue-300",
+  "Deep Learning": "bg-indigo-500/15 border-indigo-500/30 text-indigo-300",
+  "CV": "bg-sky-500/15 border-sky-500/30 text-sky-300",
+  "NLP": "bg-teal-500/15 border-teal-500/30 text-teal-300",
+  "Generative AI": "bg-fuchsia-500/15 border-fuchsia-500/30 text-fuchsia-300",
+  "Agentic AI": "bg-rose-500/15 border-rose-500/30 text-rose-300",
+  "Transformers": "bg-amber-500/15 border-amber-500/30 text-amber-300",
+  "Experiment": "bg-slate-500/15 border-slate-500/30 text-slate-300",
 };
 
-const ML_SUBCATEGORY_COLORS: Record<MachineLearningSubcategory, string> = {
+const SUBCATEGORY_COLORS: Record<string, string> = {
+  // ML Subcategories
   Regression: "bg-cyan-500/15 border-cyan-500/30 text-cyan-300",
   Classification: "bg-violet-500/15 border-violet-500/30 text-violet-300",
   Clustering: "bg-amber-500/15 border-amber-500/30 text-amber-300",
   Other: "bg-white/10 border-white/15 text-white/65",
+
+  // Deep Learning Subcategories
+  ANN: "bg-blue-500/15 border-blue-500/30 text-blue-300",
+  CNN: "bg-violet-500/15 border-violet-500/30 text-violet-300",
+  RNN: "bg-fuchsia-500/15 border-fuchsia-500/30 text-fuchsia-300",
+  LSTM: "bg-pink-500/15 border-pink-500/30 text-pink-300",
+  GRU: "bg-rose-500/15 border-rose-500/30 text-rose-300",
+  Autoencoder: "bg-purple-500/15 border-purple-500/30 text-purple-300",
+
+  // CV Subcategories
+  "Image Classification": "bg-teal-500/15 border-teal-500/30 text-teal-300",
+  "Object Detection": "bg-emerald-500/15 border-emerald-500/30 text-emerald-300",
+  "Face Recognition": "bg-green-500/15 border-green-500/30 text-green-300",
+  Segmentation: "bg-lime-500/15 border-lime-500/30 text-lime-300",
+
+  // NLP Subcategories
+  "Text Classification": "bg-orange-500/15 border-orange-500/30 text-orange-300",
+  "Sentiment Analysis": "bg-amber-500/15 border-amber-500/30 text-amber-300",
+  NER: "bg-yellow-500/15 border-yellow-500/30 text-yellow-300",
+  "Text Generation": "bg-red-500/15 border-red-500/30 text-red-300",
+
+  // GenAI Subcategories
+  LLM: "bg-sky-500/15 border-sky-500/30 text-sky-300",
+  RAG: "bg-cyan-500/15 border-cyan-500/30 text-cyan-300",
+  Multimodal: "bg-teal-500/15 border-teal-500/30 text-teal-300",
+  "Fine-tuning": "bg-indigo-500/15 border-indigo-500/30 text-indigo-300",
+  "AI Applications": "bg-violet-500/15 border-violet-500/30 text-violet-300",
+
+  // Agentic AI Subcategories
+  "Tool Calling": "bg-pink-500/15 border-pink-500/30 text-pink-300",
+  "AI Agents": "bg-rose-500/15 border-rose-500/30 text-rose-300",
+  "Multi-Agent": "bg-red-500/15 border-red-500/30 text-red-300",
+  LangGraph: "bg-orange-500/15 border-orange-500/30 text-orange-300",
+  "Agent Workflows": "bg-amber-500/15 border-amber-500/30 text-amber-300",
+
+  // Transformers Subcategories
+  "Hugging Face": "bg-yellow-500/15 border-yellow-500/30 text-yellow-300",
+
+  // Experiment Subcategories
+  "ML Experiment": "bg-blue-500/15 border-blue-500/30 text-blue-300",
+  "DL Experiment": "bg-indigo-500/15 border-indigo-500/30 text-indigo-300",
+  "NLP Experiment": "bg-teal-500/15 border-teal-500/30 text-teal-300",
+  "CV Experiment": "bg-sky-500/15 border-sky-500/30 text-sky-300",
+  "GenAI Experiment": "bg-fuchsia-500/15 border-fuchsia-500/30 text-fuchsia-300",
+  "Agentic AI Experiment": "bg-rose-500/15 border-rose-500/30 text-rose-300",
 };
 
 const TECH_COLORS: Record<string, string> = {
@@ -785,10 +876,11 @@ function SearchAndFilter({
   setQuery: (q: string) => void;
   activeFilter: string;
   setActiveFilter: (f: string) => void;
-  activeSubFilter: MachineLearningSubcategory | "All";
-  setActiveSubFilter: (f: MachineLearningSubcategory | "All") => void;
+  activeSubFilter: string;
+  setActiveSubFilter: (f: string) => void;
 }) {
-  const showMachineLearningSubfilters = activeFilter === "Machine Learning" || activeFilter === "ML Experiments";
+  const showSubfilters = activeFilter in SUBCATEGORIES_MAP;
+  const subfilters = SUBCATEGORIES_MAP[activeFilter] || [];
 
   return (
     <section className="px-4 mb-14">
@@ -820,7 +912,7 @@ function SearchAndFilter({
               key={filter}
               onClick={() => {
                 setActiveFilter(filter);
-                if (filter !== "Machine Learning" && filter !== "ML Experiments") {
+                if (!(filter in SUBCATEGORIES_MAP)) {
                   setActiveSubFilter("All");
                 }
               }}
@@ -844,12 +936,12 @@ function SearchAndFilter({
           ))}
         </div>
 
-        {showMachineLearningSubfilters && (
+        {showSubfilters && (
           <div className="flex gap-2 flex-wrap justify-center pt-1">
             <span className="px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.2em] text-white/30 border border-white/[0.06] bg-white/[0.02]">
-              ML Subcategory
+              Subcategory
             </span>
-            {(["All", ...ML_SUBCATEGORY_FILTERS] as const).map((filter) => (
+            {["All", ...subfilters].map((filter) => (
               <motion.button
                 key={filter}
                 onClick={() => setActiveSubFilter(filter)}
@@ -912,7 +1004,7 @@ function ProjectCard({
   index: number;
 }) {
   const catCls = CAT_COLORS[project.category] ?? "bg-white/10 border-white/20 text-white/60";
-  const mlSubcategory = MACHINE_LEARNING_CATEGORIES.has(project.category) ? (project.subcategory ?? "Other") : null;
+  const subcategory = project.category in SUBCATEGORIES_MAP ? (project.subcategory ?? "Other") : null;
 
   return (
     <motion.div
@@ -951,12 +1043,12 @@ function ProjectCard({
               >
                 {project.category}
               </span>
-              {mlSubcategory && (
+              {subcategory && (
                 <span
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${ML_SUBCATEGORY_COLORS[mlSubcategory]}`}
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${SUBCATEGORY_COLORS[subcategory] ?? "bg-white/10 border-white/20 text-white/60"}`}
                   style={{ fontFamily: "'JetBrains Mono', monospace" }}
                 >
-                  {mlSubcategory}
+                  {subcategory}
                 </span>
               )}
             </div>
@@ -1030,7 +1122,7 @@ function ProjectCard({
 // ─────────────────────────────────────────────────────────────
 
 function FeaturedCard({ project, onClick }: { project: Project; onClick: () => void }) {
-  const mlSubcategory = MACHINE_LEARNING_CATEGORIES.has(project.category) ? (project.subcategory ?? "Other") : null;
+  const subcategory = project.category in SUBCATEGORIES_MAP ? (project.subcategory ?? "Other") : null;
 
   return (
     <motion.div
@@ -1074,12 +1166,12 @@ function FeaturedCard({ project, onClick }: { project: Project; onClick: () => v
               >
                 {project.category}
               </span>
-              {mlSubcategory && (
+              {subcategory && (
                 <span
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${ML_SUBCATEGORY_COLORS[mlSubcategory]}`}
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${SUBCATEGORY_COLORS[subcategory] ?? "bg-white/10 border-white/20 text-white/60"}`}
                   style={{ fontFamily: "'JetBrains Mono', monospace" }}
                 >
-                  {mlSubcategory}
+                  {subcategory}
                 </span>
               )}
             </div>
@@ -1303,7 +1395,7 @@ export default function App() {
   const [isDark, setIsDark] = useState(true);
   const [query, setQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("All Projects");
-  const [activeSubFilter, setActiveSubFilter] = useState<MachineLearningSubcategory | "All">("All");
+  const [activeSubFilter, setActiveSubFilter] = useState<string>("All");
   const [isLoading, setIsLoading] = useState(true);
   const [pathname, setPathname] = useState(() => window.location.pathname);
 
@@ -1325,7 +1417,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (!MACHINE_LEARNING_CATEGORIES.has(activeFilter)) {
+    if (!(activeFilter in SUBCATEGORIES_MAP)) {
       setActiveSubFilter("All");
     }
   }, [activeFilter]);
@@ -1347,11 +1439,11 @@ export default function App() {
         p.category === activeFilter ||
         p.technologies.includes(activeFilter);
 
-      const projectSubcategory = MACHINE_LEARNING_CATEGORIES.has(p.category)
+      const projectSubcategory = p.category in SUBCATEGORIES_MAP
         ? (p.subcategory ?? "Other")
         : null;
       const matchSubF =
-        !MACHINE_LEARNING_CATEGORIES.has(activeFilter) ||
+        !(activeFilter in SUBCATEGORIES_MAP) ||
         activeSubFilter === "All" ||
         projectSubcategory === activeSubFilter;
 
