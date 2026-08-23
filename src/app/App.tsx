@@ -380,9 +380,21 @@ const PROJECTS: Project[] = [
       demoUrl: "https://vinaysingh-05.github.io/DevStack-Hub/",
       thumbnail: "/devstack.png",
     }, 
+      {
+      id: 30,
+      title: "gre-admission-prediction",
+      description: "A machine learning model to predict graduate school admissions based on various factors.",
+      category: "Experiment",
+      subcategory: "DL Experiment",
+      technologies: ["Python", "TensorFlow", "Streamlit"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Deep-Learning/tree/main/Train%20DL%20Models/Regression%20DL%20model/gre-admission-prediction",
+      demoUrl: "https://github.com/vinaysingh-05/Deep-Learning/tree/main/Train%20DL%20Models/Regression%20DL%20model/gre-admission-prediction",
+      thumbnail: "/Grd.png",
+    }, 
 
     {
-      id: 30,
+      id: 31,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "Experiment",
