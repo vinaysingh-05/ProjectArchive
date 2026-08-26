@@ -404,8 +404,20 @@ const PROJECTS: Project[] = [
       demoUrl: "https://github.com/vinaysingh-05/Deep-Learning/tree/main/Train%20DL%20Models/Mutli%20Classification%20DL%20model/mnist-classification-ann",
       thumbnail: "/neuron.png",
     },
-    {
+      {
       id: 32,
+      title: "AI Startup Valuation Predictor",
+      description: "A machine learning model to predict the valuation of AI startups based on various financial and operational factors.",
+      category: "Machine Learning",
+      subcategory: "Regression",
+      technologies: ["Python", "scikit-learn", "Streamlit"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/AI-Startup-Valuation-Prediction?tab=readme-ov-file",
+      demoUrl: "https://ai-startup-valuation-prediction-nappzj9hdfumdfzn73ou8w.streamlit.app/",
+      thumbnail: "/stratup-ml.png",
+    },
+    {
+      id: 33,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "Experiment",
