@@ -416,14 +416,26 @@ const PROJECTS: Project[] = [
       demoUrl: "https://ai-startup-valuation-prediction-nappzj9hdfumdfzn73ou8w.streamlit.app/",
       thumbnail: "/stratup-ml.png",
     },
-    {
+     {
       id: 33,
+      title: "EV Battery Remaining Useful Life (RUL) Prediction",
+      description: "A machine learning model to predict the remaining useful life of electric vehicle batteries.",
+      category: "Experiment",
+      subcategory: "ML Experiment",
+      technologies: ["Python", "scikit-learn", "CatBoost", "Streamlit"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/EV-Battery-Remaining-Useful-life-RUL-Prediction",
+      demoUrl: "https://github.com/vinaysingh-05/EV-Battery-Remaining-Useful-life-RUL-Prediction",
+      thumbnail: "/ev.png",
+    },
+    {
+      id: 34,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "Experiment",
       subcategory: "ML Experiment",
       technologies: ["Python", "scikit-learn", "Streamlit", "kaggle"],
-      status: "In Progress",
+      status: "Completed",
       githubUrl: "https://github.com/vinaysingh-05/ML-Topics",
       thumbnail: "/ml.png",
     }
