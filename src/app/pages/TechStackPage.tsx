@@ -491,37 +491,51 @@ function matchesSearch(item: TechItem, query: string) {
   return text.includes(query.toLowerCase());
 }
 
-function TechCard({ item }: { item: TechItem & { count: number } }) {
+function TechCard({ item, isDark }: { item: TechItem & { count: number }; isDark: boolean }) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.2 }}
-      className="group rounded-2xl border border-white/[0.07] bg-white/[0.03] p-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-violet-500/25 hover:bg-white/[0.06] hover:shadow-lg hover:shadow-violet-500/10"
+      className={`group rounded-2xl border p-4 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
+        isDark
+          ? "border-white/[0.07] bg-white/[0.03] hover:border-violet-500/25 hover:bg-white/[0.06] hover:shadow-violet-500/10"
+          : "border-black/[0.07] bg-black/[0.015] hover:border-violet-500/25 hover:bg-black/[0.035] hover:shadow-violet-500/5"
+      }`}
     >
       <div className="flex items-start gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] bg-black/20 text-violet-300 transition-transform duration-200 group-hover:scale-[1.03]">
+        <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-transform duration-200 group-hover:scale-[1.03] ${
+          isDark
+            ? "border-white/[0.08] bg-black/20 text-violet-300"
+            : "border-black/[0.08] bg-black/[0.03] text-violet-650"
+        }`}>
           <TechIcon name={item.icon} className="h-5 w-5" />
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0">
-              <h3 className="truncate text-sm font-semibold text-white">{item.name}</h3>
-              <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-white/42">{item.description}</p>
+              <h3 className={`truncate text-sm font-semibold transition-colors duration-250 ${isDark ? "text-white" : "text-zinc-800"}`}>{item.name}</h3>
+              <p className={`mt-1 line-clamp-2 text-xs leading-relaxed transition-colors duration-250 ${isDark ? "text-white/42" : "text-zinc-500"}`}>{item.description}</p>
             </div>
             {item.count > 0 && (
-              <span className="shrink-0 rounded-full border border-violet-500/20 bg-violet-500/10 px-2 py-0.5 text-[10px] text-violet-300">
+              <span className={`shrink-0 rounded-full border px-2 py-0.5 text-[10px] ${
+                isDark ? "border-violet-500/20 bg-violet-500/10 text-violet-300" : "border-violet-500/30 bg-violet-500/8 text-violet-650 font-semibold"
+              }`}>
                 {item.count}
               </span>
             )}
           </div>
           <div className="mt-3 flex flex-wrap gap-1.5">
-            <span className="rounded-full border border-white/[0.08] bg-black/20 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-white/40">
+            <span className={`rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] transition-colors duration-250 ${
+              isDark ? "border-white/[0.08] bg-black/20 text-white/40" : "border-black/[0.06] bg-black/[0.02] text-zinc-400"
+            }`}>
               {item.category}
             </span>
             {item.tags.slice(0, 2).map((tag) => (
-              <span key={tag} className="rounded-full border border-white/[0.06] bg-white/[0.03] px-2.5 py-1 text-[10px] text-white/35">
+              <span key={tag} className={`rounded-full border px-2.5 py-1 text-[10px] transition-colors duration-250 ${
+                isDark ? "border-white/[0.06] bg-white/[0.03] text-white/35" : "border-black/[0.06] bg-black/[0.015] text-zinc-400"
+              }`}>
                 {tag}
               </span>
             ))}
@@ -535,22 +549,24 @@ function TechCard({ item }: { item: TechItem & { count: number } }) {
 function CategorySection({
   category,
   items,
+  isDark,
 }: {
   category: TechCategory;
   items: Array<TechItem & { count: number }>;
+  isDark: boolean;
 }) {
   return (
     <section className="space-y-4">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-[10px] uppercase tracking-[0.28em] text-violet-300/70">{category}</p>
-          <h2 className="mt-2 text-lg font-semibold text-white">{CATEGORY_DESCRIPTIONS[category]}</h2>
+          <h2 className={`mt-2 text-lg font-semibold transition-colors duration-250 ${isDark ? "text-white" : "text-zinc-800"}`}>{CATEGORY_DESCRIPTIONS[category]}</h2>
         </div>
-        <p className="text-xs text-white/32">{items.length} technologies</p>
+        <p className={`text-xs transition-colors duration-250 ${isDark ? "text-white/32" : "text-zinc-400"}`}>{items.length} technologies</p>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {items.map((item) => (
-          <TechCard key={`${category}-${item.name}`} item={item} />
+          <TechCard key={`${category}-${item.name}`} item={item} isDark={isDark} />
         ))}
       </div>
     </section>
@@ -560,9 +576,11 @@ function CategorySection({
 export default function TechStackPage({
   projects,
   onBack,
+  isDark,
 }: {
   projects: ProjectLike[];
   onBack: () => void;
+  isDark: boolean;
 }) {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<(typeof CATEGORY_FILTERS)[number]>("All");
@@ -590,20 +608,28 @@ export default function TechStackPage({
   const visibleCategories = activeCategory === "All" ? CATEGORY_ORDER : ([activeCategory] as TechCategory[]);
 
   return (
-    <div className="min-h-screen bg-[#080810] text-white selection:bg-violet-500/30 selection:text-violet-100">
+    <div className={`min-h-screen transition-colors duration-300 selection:bg-violet-500/30 selection:text-violet-100 ${
+      isDark ? "bg-[#080810] text-white" : "bg-[#fafafa] text-zinc-900"
+    }`}>
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-[#080810]" />
-        <div className="absolute -top-48 left-1/2 h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-violet-500/10 blur-[120px]" />
-        <div className="absolute right-0 top-1/3 h-[320px] w-[320px] rounded-full bg-cyan-500/10 blur-[100px]" />
+        <div className={`absolute inset-0 transition-colors duration-300 ${isDark ? "bg-[#080810]" : "bg-[#fafafa]"}`} />
+        <div className={`absolute -top-48 left-1/2 h-[420px] w-[760px] -translate-x-1/2 rounded-full blur-[120px] transition-colors duration-300 ${isDark ? "bg-violet-500/10" : "bg-violet-400/[0.04]"}`} />
+        <div className={`absolute right-0 top-1/3 h-[320px] w-[320px] rounded-full blur-[100px] transition-colors duration-300 ${isDark ? "bg-cyan-500/10" : "bg-cyan-400/[0.03]"}`} />
       </div>
 
       <main className="relative z-10">
         <section className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-5 backdrop-blur-xl sm:p-6">
+          <div className={`rounded-[2rem] border backdrop-blur-xl p-5 sm:p-6 transition-all duration-300 ${
+            isDark ? "border-white/[0.08] bg-white/[0.03]" : "border-black/[0.06] bg-black/[0.015]"
+          }`}>
             <button
               type="button"
               onClick={onBack}
-              className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs text-white/60 transition-colors hover:bg-white/[0.08] hover:text-white"
+              className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs transition-colors duration-300 ${
+                isDark
+                  ? "border-white/[0.08] bg-white/[0.04] text-white/60 hover:bg-white/[0.08] hover:text-white"
+                  : "border-black/[0.08] bg-black/[0.04] text-zinc-650 hover:bg-black/[0.08] hover:text-zinc-950"
+              }`}
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Back to projects
@@ -614,20 +640,24 @@ export default function TechStackPage({
                 <Layers3 className="h-3.5 w-3.5" />
                 TECH STACK
               </div>
-              <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">Technologies I Build With</h1>
-              <p className="max-w-2xl text-sm leading-7 text-white/45 sm:text-base">
+              <h1 className={`text-3xl font-semibold tracking-tight sm:text-5xl transition-colors duration-250 ${isDark ? "text-white" : "text-zinc-800"}`}>Technologies I Build With</h1>
+              <p className={`max-w-2xl text-sm leading-7 sm:text-base transition-colors duration-250 ${isDark ? "text-white/45" : "text-zinc-500"}`}>
                 A curated collection of the technologies I use to build AI, ML, GenAI and production-ready applications.
               </p>
             </div>
 
             <div className="mt-6 max-w-2xl">
               <label className="relative block">
-                <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/25" />
+                <Search className={`pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 ${isDark ? "text-white/25" : "text-black/35"}`} />
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search technologies..."
-                  className="w-full rounded-2xl border border-white/[0.07] bg-black/20 py-3.5 pl-11 pr-4 text-sm text-white/80 placeholder:text-white/25 outline-none transition-colors focus:border-violet-500/35 focus:bg-black/30"
+                  className={`w-full rounded-2xl border py-3.5 pl-11 pr-4 text-sm transition-all focus:border-violet-500/35 ${
+                    isDark
+                      ? "border-white/[0.07] bg-black/20 text-white/80 placeholder:text-white/25 focus:bg-black/30"
+                      : "border-black/[0.06] bg-black/[0.03] text-zinc-800 placeholder:text-black/35 focus:bg-black/[0.05]"
+                  }`}
                 />
               </label>
             </div>
@@ -642,8 +672,12 @@ export default function TechStackPage({
                     onClick={() => setActiveCategory(category)}
                     className={`rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all ${
                       active
-                        ? "border-violet-500/35 bg-violet-500/10 text-violet-200"
-                        : "border-white/[0.07] bg-white/[0.03] text-white/45 hover:border-white/[0.13] hover:bg-white/[0.06] hover:text-white/75"
+                        ? isDark
+                          ? "border-violet-500/35 bg-violet-500/10 text-violet-200"
+                          : "border-violet-500/60 bg-violet-500/10 text-violet-600 font-semibold"
+                        : isDark
+                          ? "border-white/[0.07] bg-white/[0.03] text-white/45 hover:border-white/[0.13] hover:bg-white/[0.06] hover:text-white/75"
+                          : "border-black/[0.06] bg-black/[0.015] text-zinc-500 hover:border-black/[0.12] hover:bg-black/[0.04] hover:text-zinc-850"
                     }`}
                   >
                     {category}
@@ -658,21 +692,27 @@ export default function TechStackPage({
           {visibleCategories.map((category) => {
             const items = grouped.get(category) ?? [];
             if (items.length === 0) return null;
-            return <CategorySection key={category} category={category} items={items} />;
+            return <CategorySection key={category} category={category} items={items} isDark={isDark} />;
           })}
 
-          <section className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-5 backdrop-blur-xl sm:p-6">
+          <section className={`rounded-[2rem] border p-5 sm:p-6 transition-all duration-300 ${
+            isDark ? "border-white/[0.08] bg-white/[0.03]" : "border-black/[0.06] bg-black/[0.015]"
+          }`}>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-violet-300/70">Let's build something intelligent.</p>
-                <p className="mt-2 text-sm text-white/42">
+                <p className={`mt-2 text-sm transition-colors duration-250 ${isDark ? "text-white/42" : "text-zinc-550"}`}>
                   Explore the projects that use these technologies in real applications.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={onBack}
-                className="inline-flex items-center gap-2 rounded-xl border border-violet-500/25 bg-violet-500/12 px-4 py-2 text-sm font-medium text-violet-200 transition-all hover:bg-violet-500/20 hover:text-white"
+                className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium transition-all ${
+                  isDark
+                    ? "border-violet-500/25 bg-violet-500/12 text-violet-200 hover:bg-violet-500/20 hover:text-white"
+                    : "border-violet-500/20 bg-violet-500/8 text-violet-650 hover:bg-violet-500/15 hover:text-violet-750"
+                }`}
               >
                 View Projects
                 <ArrowUpRight className="h-4 w-4" />
