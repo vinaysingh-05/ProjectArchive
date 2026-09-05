@@ -473,8 +473,20 @@ const PROJECTS: Project[] = [
       demoUrl: "https://vinaysingh-05.github.io/AI-Fluency-FlyRankAI-internship/",
       thumbnail: "/flyrank.png",
     },
-    {
+        {
       id: 36,
+      title: "OfferCraft AI",
+      description: "OfferCraft AI is an intelligent salary negotiation and compensation benchmarking web application designed to help job seekers, engineers, data professionals, and corporate leaders negotiate their worth with confidence.",
+      category: "Machine Learning",
+      subcategory: "Regression",
+      technologies: ["Random Forest", "Streamlit", "JavaScript"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/AI-Interview-Salary-Negotiation-Prediction",
+      demoUrl: "https://ai-interview-salary-negotiation-prediction-bkl6fg2mjezzh2qvcfy.streamlit.app/",
+      thumbnail: "/ai salary.png",
+    },
+    {
+      id: 37,
       title: "ML Learning Topics",
       description: "A comprehensive guide to various machine learning topics, including supervised and unsupervised learning techniques.",
       category: "Experiment",
