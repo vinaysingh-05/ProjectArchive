@@ -98,7 +98,7 @@ const PROJECTS: Project[] = [
       thumbnail: "/human.png",
     }, 
     {
-      id: 4,
+      id: 39,
       title: "Project Archive",
       description: "A practical developer portfolio focused on simple navigation, direct project access, and a cleaner personal introduction.",
       category: "Web Development",
@@ -484,7 +484,7 @@ const PROJECTS: Project[] = [
       demoUrl: "https://vinaysingh-05.github.io/AI-Fluency-FlyRankAI-internship/",
       thumbnail: "/flyrank.png",
     },
-        {
+    {
       id: 36,
       title: "OfferCraft AI",
       description: "OfferCraft AI is an intelligent salary negotiation and compensation benchmarking web application designed to help job seekers, engineers, data professionals, and corporate leaders negotiate their worth with confidence.",
@@ -496,7 +496,7 @@ const PROJECTS: Project[] = [
       demoUrl: "https://ai-interview-salary-negotiation-prediction-bkl6fg2mjezzh2qvcfy.streamlit.app/",
       thumbnail: "/ai salary.png",
     },
-        {
+    {
       id: 38,
       title: "SMS & Email Spam Classifier",
       description: "A machine learning model for classifying SMS and email messages as spam or not spam.",
@@ -880,7 +880,6 @@ function AnimatedBackground({ isDark }: { isDark: boolean }) {
         .bg-orb-3 { animation: orb3 18s ease-in-out infinite; }
       `}</style>
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className={`absolute inset-0 transition-colors duration-300 ${isDark ? "bg-[#080810]" : "bg-[#fafafa]"}`} />
         <div className={`bg-orb-1 absolute -top-48 -left-48 w-[700px] h-[700px] rounded-full blur-[130px] transition-colors duration-300 ${isDark ? "bg-violet-600/[0.13]" : "bg-violet-400/[0.05]"}`} />
         <div className={`bg-orb-2 absolute top-1/3 -right-48 w-[600px] h-[600px] rounded-full blur-[110px] transition-colors duration-300 ${isDark ? "bg-indigo-600/[0.10]" : "bg-indigo-400/[0.04]"}`} />
         <div className={`bg-orb-3 absolute -bottom-48 left-1/4 w-[600px] h-[600px] rounded-full blur-[130px] transition-colors duration-300 ${isDark ? "bg-cyan-600/[0.08]" : "bg-cyan-400/[0.03]"}`} />
@@ -2334,7 +2333,7 @@ export default function App() {
                 <AnimatePresence>
                   {filteredProjects.map((p, i) => (
                     <ProjectCard
-                      key={p.id}
+                      key={`${p.id}-${p.title}`}
                       project={p}
                       index={i}
                       isDark={isDark}
