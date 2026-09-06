@@ -86,6 +86,17 @@ const PROJECTS: Project[] = [
       demoUrl: "https://ai-interview-question-generator-chi.vercel.app/",
       thumbnail: "/interviewAI.png",
     },  
+       {
+      id: 4,
+      title: "Human Atlas 🫀",
+      description: "Explore the human body and its systems in an interactive and engaging way.",
+      category: "Web Development",
+      technologies: ["React", "TypeScript", "Next.js", "tailwind CSS"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/human-atlas",
+      demoUrl: "https://human-atlas-six.vercel.app/",
+      thumbnail: "/human.png",
+    }, 
     {
       id: 4,
       title: "Project Archive",
