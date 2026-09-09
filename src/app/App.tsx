@@ -509,6 +509,18 @@ const PROJECTS: Project[] = [
       demoUrl: "https://github.com/vinaysingh-05/Email-sms-classifier",
       thumbnail: "/spam.jpg",
     },
+     {
+      id: 39,
+      title: "IPL Win Probability Predictor",
+      description: "ML-powered IPL win probability engine built with scikit-learn, Optuna, and Streamlit..",
+      category: "Machine Learning",
+      subcategory: "Classification",
+      technologies: ["Extra Trees Classifier", "Optuna", "python"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/ipl-win-probability-predictor",
+      demoUrl: "https://ipl-win-probability-predictor-3baagkdne8cxzykel2qbyj.streamlit.app/",
+      thumbnail: "/ipl.png",
+    },
     {
       id: 37,
       title: "ML Learning Topics",
