@@ -521,6 +521,18 @@ const PROJECTS: Project[] = [
       demoUrl: "https://ipl-win-probability-predictor-3baagkdne8cxzykel2qbyj.streamlit.app/",
       thumbnail: "/ipl.png",
     },
+         {
+      id: 39,
+      title: "Loanlens",
+      description: "Predict loan approval status using machine learning..",
+      category: "Machine Learning",
+      subcategory: "Classification",
+      technologies: ["Voting Classifier", "Optuna", "python"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/AI-Loan-Approval-Prediction-LoanLens",
+      demoUrl: "https://ai-loan-approval-prediction-loanlens-9wvyhgazcqkywws5iu2sah.streamlit.app/",
+      thumbnail: "/home page.png",
+    },
     {
       id: 37,
       title: "ML Learning Topics",
