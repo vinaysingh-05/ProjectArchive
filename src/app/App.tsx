@@ -726,31 +726,61 @@ function useCounter(end: number, duration = 1800, active = false) {
 // ANIMATED BACKGROUND
 // ─────────────────────────────────────────────────────────────
 
-const CODE_SNIPPETS = [
-  "import React, { useState } from 'react';",
-  "const [isDark, setIsDark] = useState(true);",
-  "function CodeRainBackground() {",
-  "useEffect(() => {",
-  "const ctx = canvas.getContext('2d');",
-  "requestAnimationFrame(animate);",
-  "const width = window.innerWidth;",
-  "const height = window.innerHeight;",
-  "console.log('Matrix Active');",
-  "git commit -m 'new DL experiment';",
-  "npm run dev",
-  "await fetch('/api/projects');",
-  "const filtered = projects.filter(p => p.featured);",
-  "model.compile({ optimizer: 'adam' });",
-  "new Agent({ role: 'coder', memory: true });",
-  "import { motion } from 'framer-motion';",
-  "const layers = [128, 64, 32];",
-  "const cnn = new CNN(); cnn.add(conv2d);",
-  "db.query('SELECT * FROM users');",
-  "return <div className='grid' />;",
-];
+// ─────────────────────────────────────────────────────────────
+// CUSTOM CURSOR
+// ─────────────────────────────────────────────────────────────
 
-function CodeRainBackground({ isDark }: { isDark: boolean }) {
+function CustomCursor() {
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
+  const posRef = useRef({ x: 0, y: 0 });
+  const ringPosRef = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMove = (e: MouseEvent) => {
+      posRef.current = { x: e.clientX, y: e.clientY };
+    };
+    window.addEventListener("mousemove", handleMove);
+
+    let rafId: number;
+    const animate = () => {
+      // Smooth ring follow
+      ringPosRef.current.x += (posRef.current.x - ringPosRef.current.x) * 0.12;
+      ringPosRef.current.y += (posRef.current.y - ringPosRef.current.y) * 0.12;
+
+      if (dotRef.current) {
+        dotRef.current.style.left = `${posRef.current.x}px`;
+        dotRef.current.style.top = `${posRef.current.y}px`;
+      }
+      if (ringRef.current) {
+        ringRef.current.style.left = `${ringPosRef.current.x}px`;
+        ringRef.current.style.top = `${ringPosRef.current.y}px`;
+      }
+      rafId = requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+
+  return (
+    <>
+      <div ref={dotRef} className="cursor-dot hidden md:block" />
+      <div ref={ringRef} className="cursor-ring hidden md:block" />
+    </>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// NEURAL NETWORK PARTICLE BACKGROUND
+// ─────────────────────────────────────────────────────────────
+
+function NeuralNetBackground({ isDark }: { isDark: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: -9999, y: -9999 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -763,71 +793,169 @@ function CodeRainBackground({ isDark }: { isDark: boolean }) {
     let height = canvas.height = window.innerHeight;
 
     const handleResize = () => {
-      if (!canvas) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
     };
+    const handleMouse = (e: MouseEvent) => {
+      mouseRef.current = { x: e.clientX, y: e.clientY };
+    };
+    const handleLeave = () => { mouseRef.current = { x: -9999, y: -9999 }; };
     window.addEventListener("resize", handleResize);
+    window.addEventListener("mousemove", handleMouse);
+    window.addEventListener("mouseleave", handleLeave);
 
-    const COLORS_DARK = [
-      "rgba(167, 139, 250, ", // violet-400
-      "rgba(96, 165, 250, ",  // blue-400
-      "rgba(45, 212, 191, ",  // teal-400
-      "rgba(34, 211, 238, ",  // cyan-400
+    // Color palettes
+    const darkColors = [
+      { r: 139, g: 92,  b: 246 },
+      { r: 59,  g: 130, b: 246 },
+      { r: 20,  g: 184, b: 166 },
+      { r: 6,   g: 182, b: 212 },
+      { r: 99,  g: 102, b: 241 },
     ];
-    const COLORS_LIGHT = [
-      "rgba(109, 40, 217, ",  // violet-700
-      "rgba(29, 78, 216, ",   // blue-700
-      "rgba(15, 118, 110, ",  // teal-700
-      "rgba(3, 105, 120, ",   // cyan-705
+    const lightColors = [
+      { r: 109, g: 40,  b: 217 },
+      { r: 29,  g: 78,  b: 216 },
+      { r: 15,  g: 118, b: 110 },
+      { r: 3,   g: 105, b: 120 },
+      { r: 67,  g: 56,  b: 202 },
     ];
+    const getColors = () => isDark ? darkColors : lightColors;
 
-    const getRandColor = () => isDark
-      ? COLORS_DARK[Math.floor(Math.random() * COLORS_DARK.length)]
-      : COLORS_LIGHT[Math.floor(Math.random() * COLORS_LIGHT.length)];
+    interface NNode {
+      x: number; y: number;
+      vx: number; vy: number;
+      r: number;
+      color: { r: number; g: number; b: number };
+      pulsePhase: number;
+      pulseSpeed: number;
+      baseOpacity: number;
+    }
 
-    const getRandOpacity = () => isDark
-      ? 0.14 + Math.random() * 0.24  // brighter dark mode (0.14 to 0.38)
-      : 0.08 + Math.random() * 0.16; // brighter light mode (0.08 to 0.24)
+    const NODE_COUNT = Math.min(Math.floor((width * height) / 18000), 90);
+    let nodes: NNode[] = [];
 
-    const fontSize = 12;
-    const columns = Math.floor(width / 140);
-    const streams = Array.from({ length: columns }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * -height,
-      speed: 1.8 + Math.random() * 2.4,
-      opacity: getRandOpacity(),
-      colorPrefix: getRandColor(),
-      snippet: CODE_SNIPPETS[Math.floor(Math.random() * CODE_SNIPPETS.length)],
-      delay: Math.random() * 80,
-    }));
+    const createNodes = () => {
+      const cols = getColors();
+      nodes = Array.from({ length: NODE_COUNT }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.55,
+        vy: (Math.random() - 0.5) * 0.55,
+        r: 1.5 + Math.random() * 2.5,
+        color: cols[Math.floor(Math.random() * cols.length)],
+        pulsePhase: Math.random() * Math.PI * 2,
+        pulseSpeed: 0.018 + Math.random() * 0.025,
+        baseOpacity: isDark ? 0.45 + Math.random() * 0.45 : 0.35 + Math.random() * 0.35,
+      }));
+    };
+    createNodes();
+
+    const CONNECT_DIST = 155;
+    const MOUSE_REPEL_DIST = 90;
+    const MOUSE_ATTRACT_DIST = 200;
+
+    // Ripple effects on click
+    interface Ripple { x: number; y: number; r: number; maxR: number; opacity: number; color: { r: number; g: number; b: number }; }
+    const ripples: Ripple[] = [];
+    const handleClick = (e: MouseEvent) => {
+      const cols = getColors();
+      ripples.push({
+        x: e.clientX, y: e.clientY,
+        r: 0, maxR: 180, opacity: 0.7,
+        color: cols[Math.floor(Math.random() * cols.length)],
+      });
+    };
+    window.addEventListener("click", handleClick);
 
     const draw = () => {
-      ctx.fillStyle = isDark ? "rgba(8, 8, 16, 0.18)" : "rgba(250, 250, 250, 0.18)";
-      ctx.fillRect(0, 0, width, height);
+      ctx.clearRect(0, 0, width, height);
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
 
-      ctx.font = "12px 'JetBrains Mono', Consolas, monospace";
-
-      streams.forEach((stream) => {
-        if (stream.delay > 0) {
-          stream.delay -= 1;
-          return;
+      // Update nodes
+      nodes.forEach((n) => {
+        const dx = mx - n.x; const dy = my - n.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MOUSE_REPEL_DIST && dist > 0) {
+          const force = (MOUSE_REPEL_DIST - dist) / MOUSE_REPEL_DIST * 0.6;
+          n.vx -= (dx / dist) * force; n.vy -= (dy / dist) * force;
+        } else if (dist < MOUSE_ATTRACT_DIST && dist > MOUSE_REPEL_DIST) {
+          const force = ((MOUSE_ATTRACT_DIST - dist) / MOUSE_ATTRACT_DIST) * 0.06;
+          n.vx += (dx / dist) * force; n.vy += (dy / dist) * force;
         }
-
-        ctx.fillStyle = stream.colorPrefix + stream.opacity + ")";
-        ctx.fillText(stream.snippet, stream.x, stream.y);
-
-        stream.y += stream.speed;
-
-        if (stream.y > height) {
-          stream.y = Math.random() * -150;
-          stream.x = Math.random() * width;
-          stream.snippet = CODE_SNIPPETS[Math.floor(Math.random() * CODE_SNIPPETS.length)];
-          stream.speed = 1.8 + Math.random() * 2.4;
-          stream.opacity = getRandOpacity();
-          stream.colorPrefix = getRandColor();
-        }
+        n.vx *= 0.98; n.vy *= 0.98;
+        const speed = Math.sqrt(n.vx * n.vx + n.vy * n.vy);
+        if (speed > 1.8) { n.vx = (n.vx / speed) * 1.8; n.vy = (n.vy / speed) * 1.8; }
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < -20) n.x = width + 20; else if (n.x > width + 20) n.x = -20;
+        if (n.y < -20) n.y = height + 20; else if (n.y > height + 20) n.y = -20;
+        n.pulsePhase += n.pulseSpeed;
       });
+
+      // Draw connections
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i]; const b = nodes[j];
+          const dx = a.x - b.x; const dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CONNECT_DIST) {
+            const alpha = 1 - dist / CONNECT_DIST;
+            const md = Math.min(
+              Math.sqrt((mx - a.x) ** 2 + (my - a.y) ** 2),
+              Math.sqrt((mx - b.x) ** 2 + (my - b.y) ** 2)
+            );
+            const mouseBoost = md < 180 ? 1 + (1 - md / 180) * 1.6 : 1;
+            const finalAlpha = Math.min(alpha * mouseBoost * (isDark ? 0.28 : 0.15), 0.85);
+            const c = a.color;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(${c.r},${c.g},${c.b},${finalAlpha})`;
+            ctx.lineWidth = alpha * mouseBoost * (isDark ? 1.0 : 0.65);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw nodes
+      nodes.forEach((n) => {
+        const pulse = 0.5 + 0.5 * Math.sin(n.pulsePhase);
+        const dMouse = Math.sqrt((mx - n.x) ** 2 + (my - n.y) ** 2);
+        const mouseGlow = dMouse < 200 ? (1 - dMouse / 200) : 0;
+        const radius = n.r * (1 + pulse * 0.35 + mouseGlow * 0.8);
+        const opacity = n.baseOpacity * (0.7 + 0.3 * pulse) * (1 + mouseGlow * 0.8);
+        const { r, g, b } = n.color;
+        if (isDark) {
+          const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, radius * (4 + mouseGlow * 4));
+          grad.addColorStop(0, `rgba(${r},${g},${b},${opacity * 0.35})`);
+          grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+          ctx.beginPath(); ctx.arc(n.x, n.y, radius * (4 + mouseGlow * 4), 0, Math.PI * 2);
+          ctx.fillStyle = grad; ctx.fill();
+        }
+        ctx.beginPath(); ctx.arc(n.x, n.y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${opacity})`; ctx.fill();
+      });
+
+      // Mouse cursor aura
+      if (mx > 0 && my > 0) {
+        const auraGrad = ctx.createRadialGradient(mx, my, 0, mx, my, 120);
+        const auraAlpha = isDark ? 0.06 : 0.04;
+        auraGrad.addColorStop(0, `rgba(139,92,246,${auraAlpha})`);
+        auraGrad.addColorStop(0.5, `rgba(96,165,250,${auraAlpha * 0.5})`);
+        auraGrad.addColorStop(1, "rgba(139,92,246,0)");
+        ctx.beginPath(); ctx.arc(mx, my, 120, 0, Math.PI * 2);
+        ctx.fillStyle = auraGrad; ctx.fill();
+      }
+
+      // Ripples
+      for (let i = ripples.length - 1; i >= 0; i--) {
+        const rp = ripples[i];
+        rp.r += 4; rp.opacity -= 0.015;
+        if (rp.opacity <= 0 || rp.r > rp.maxR) { ripples.splice(i, 1); continue; }
+        ctx.beginPath(); ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${rp.color.r},${rp.color.g},${rp.color.b},${rp.opacity})`;
+        ctx.lineWidth = 1.5; ctx.stroke();
+      }
 
       animId = requestAnimationFrame(draw);
     };
@@ -837,6 +965,9 @@ function CodeRainBackground({ isDark }: { isDark: boolean }) {
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouse);
+      window.removeEventListener("mouseleave", handleLeave);
+      window.removeEventListener("click", handleClick);
     };
   }, [isDark]);
 
@@ -892,31 +1023,91 @@ function getTechColor(tech: string, isDark: boolean) {
   return isDark ? cls : adaptColor(cls);
 }
 
+const VIDEO_BG_URL = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260723_145606_ab143199-b593-4941-bb1b-9afca215416b.mp4";
+
 function AnimatedBackground({ isDark }: { isDark: boolean }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    vid.playbackRate = 0.85;
+  }, []);
+
   return (
     <>
       <style>{`
-        @keyframes orb1 { 0%,100%{transform:translate(0,0) scale(1)} 40%{transform:translate(70px,-90px) scale(1.12)} 70%{transform:translate(-50px,60px) scale(0.9)} }
-        @keyframes orb2 { 0%,100%{transform:translate(0,0) scale(1)} 35%{transform:translate(-90px,50px) scale(0.88)} 70%{transform:translate(70px,-70px) scale(1.08)} }
-        @keyframes orb3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(50px,90px) scale(1.06)} }
-        .bg-orb-1 { animation: orb1 20s ease-in-out infinite; }
-        .bg-orb-2 { animation: orb2 25s ease-in-out infinite; }
-        .bg-orb-3 { animation: orb3 18s ease-in-out infinite; }
+        @keyframes orb1 { 0%,100%{transform:translate(0,0) scale(1)} 40%{transform:translate(80px,-100px) scale(1.18)} 70%{transform:translate(-60px,70px) scale(0.88)} }
+        @keyframes orb2 { 0%,100%{transform:translate(0,0) scale(1)} 35%{transform:translate(-100px,60px) scale(0.85)} 70%{transform:translate(80px,-80px) scale(1.12)} }
+        @keyframes orb3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(60px,100px) scale(1.1)} }
+        .bg-orb-1 { animation: orb1 22s ease-in-out infinite; }
+        .bg-orb-2 { animation: orb2 28s ease-in-out infinite; }
+        .bg-orb-3 { animation: orb3 20s ease-in-out infinite; }
       `}</style>
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className={`bg-orb-1 absolute -top-48 -left-48 w-[700px] h-[700px] rounded-full blur-[130px] transition-colors duration-300 ${isDark ? "bg-violet-600/[0.13]" : "bg-violet-400/[0.05]"}`} />
-        <div className={`bg-orb-2 absolute top-1/3 -right-48 w-[600px] h-[600px] rounded-full blur-[110px] transition-colors duration-300 ${isDark ? "bg-indigo-600/[0.10]" : "bg-indigo-400/[0.04]"}`} />
-        <div className={`bg-orb-3 absolute -bottom-48 left-1/4 w-[600px] h-[600px] rounded-full blur-[130px] transition-colors duration-300 ${isDark ? "bg-cyan-600/[0.08]" : "bg-cyan-400/[0.03]"}`} />
-        <div
-          className={`absolute inset-0 transition-opacity duration-300 ${isDark ? "opacity-[0.025]" : "opacity-[0.05]"}`}
-          style={{
-            backgroundImage: isDark
-              ? "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)"
-              : "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-        <CodeRainBackground isDark={isDark} />
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+
+        {/* ── Video background (dark mode) ── */}
+        {isDark && (
+          <>
+            <video
+              ref={videoRef}
+              src={VIDEO_BG_URL}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ filter: "brightness(0.38) saturate(1.4)" }}
+            />
+            {/* Overlay so text stays readable */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(3,0,20,0.72) 0%, rgba(10,0,40,0.60) 40%, rgba(0,10,35,0.68) 100%)",
+              }}
+            />
+            {/* Vignette edge darkening */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.65) 100%)",
+              }}
+            />
+          </>
+        )}
+
+        {/* ── Light mode: animated glowing orbs (no video) ── */}
+        {!isDark && (
+          <>
+            <div className="bg-orb-1 absolute -top-56 -left-56 w-[800px] h-[800px] rounded-full blur-[140px] bg-violet-400/[0.09]" />
+            <div className="bg-orb-2 absolute top-1/3 -right-56 w-[700px] h-[700px] rounded-full blur-[120px] bg-indigo-400/[0.07]" />
+            <div className="bg-orb-3 absolute -bottom-56 left-1/4 w-[700px] h-[700px] rounded-full blur-[140px] bg-cyan-400/[0.06]" />
+            {/* Light mode dot grid */}
+            <div
+              className="absolute inset-0 opacity-[0.045]"
+              style={{
+                backgroundImage: "radial-gradient(rgba(0,0,0,0.18) 1px, transparent 1px)",
+                backgroundSize: "28px 28px",
+              }}
+            />
+          </>
+        )}
+
+        {/* ── Dark mode: dot grid over video ── */}
+        {isDark && (
+          <div
+            className="absolute inset-0 opacity-[0.015]"
+            style={{
+              backgroundImage: "radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px)",
+              backgroundSize: "28px 28px",
+            }}
+          />
+        )}
+
+        {/* ── Neural network interactive particle canvas (always on top) ── */}
+        <NeuralNetBackground isDark={isDark} />
       </div>
     </>
   );
@@ -1329,7 +1520,7 @@ function HeroSection({ onOpenTechStack, isDark }: { onOpenTechStack: () => void;
             style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "clamp(3rem, 12vw, 7.5rem)" }}
           >
             <span className={`block transition-colors duration-300 ${isDark ? "text-white" : "text-zinc-800"}`}>VINAY</span>
-            <span className="block bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="block shimmer-gradient">
               KUMAR
             </span>
           </motion.h1>
@@ -1777,10 +1968,10 @@ function ProjectCard({
       onClick={onClick}
       className="group cursor-pointer"
     >
-      <div className={`relative h-full rounded-2xl border backdrop-blur-sm overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 ${
+      <div className={`relative h-full rounded-2xl border backdrop-blur-sm overflow-hidden hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 project-card-glow ${
         isDark
-          ? "border-white/[0.07] bg-white/[0.025] hover:border-violet-500/25 hover:bg-white/[0.055] hover:shadow-violet-500/[0.07]"
-          : "border-black/[0.07] bg-black/[0.015] hover:border-violet-500/25 hover:bg-black/[0.035] hover:shadow-violet-500/[0.04]"
+          ? "border-white/[0.07] bg-white/[0.025] hover:border-violet-500/30 hover:bg-white/[0.055] hover:shadow-violet-500/[0.10]"
+          : "border-black/[0.07] bg-black/[0.015] hover:border-violet-500/30 hover:bg-black/[0.035] hover:shadow-violet-500/[0.06]"
       }`}>
         {/* Thumbnail */}
         <div className="relative aspect-video overflow-hidden bg-[#0d0d1c]">
@@ -2317,6 +2508,7 @@ export default function App() {
       style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
       <AnimatedBackground isDark={isDark} />
+      <CustomCursor />
 
       <div className="relative z-10">
         <Navbar isDark={isDark} setIsDark={setIsDark} />

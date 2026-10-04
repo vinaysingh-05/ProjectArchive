@@ -1,0 +1,112 @@
+/* ─── Smooth scrolling ─────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Custom scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.35);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.6);
+}
+
+/* ─── Custom cursor dot ─────────────────────────────────────── */
+.cursor-dot {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.85);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(139, 92, 246, 0.4);
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease, border-color 0.15s ease;
+  z-index: 9998;
+}
+
+/* ─── Card glow border animation ────────────────────────────── */
+@keyframes card-border-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+  50%       { box-shadow: 0 0 20px 1px rgba(139, 92, 246, 0.12); }
+}
+
+/* ─── Floating animation ─────────────────────────────────────── */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+.float-anim {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+/* ─── Gradient text shimmer ─────────────────────────────────── */
+@keyframes shimmer-text {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.shimmer-gradient {
+  background: linear-gradient(135deg, #a78bfa, #60a5fa, #2dd4bf, #a78bfa);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text 5s ease infinite;
+}
+
+/* ─── Project card tilt/glow on hover ──────────────────────── */
+.project-card-glow:hover {
+  box-shadow: 0 8px 40px -8px rgba(139, 92, 246, 0.18),
+              0 2px 10px -2px rgba(96, 165, 250, 0.12);
+}
+
+/* ─── Pulse ring animation ──────────────────────────────────── */
+@keyframes pulse-ring {
+  0%   { transform: scale(0.9); opacity: 0.7; }
+  70%  { transform: scale(1.3); opacity: 0; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(139, 92, 246, 0.5);
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* ─── Responsive typography ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(2.5rem, 14vw, 5rem) !important;
+  }
+}
+
+/* ─── Selection style ───────────────────────────────────────── */
+::selection {
+  background: rgba(139, 92, 246, 0.28);
+  color: inherit;
+}
