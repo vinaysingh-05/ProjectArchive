@@ -50,6 +50,19 @@ interface Project {
 // ─────────────────────────────────────────────────────────────
 
 const PROJECTS: Project[] = [
+     {
+      id: 1,
+      title: "POLYGLOT-PROXY AGENT",
+      description: "Intelligent AI routing middleware that evaluates prompts, applies safety guardrails, and connects your applications to suitable AI models.",
+      category: "Web Development",
+      technologies: [ "TypeScript", "Amazon Web Services", "AWS badrock", "LLM agent","supabase","Fastapi"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/POLYGLOT-PROXY-WEBSITE",
+      demoUrl: "https://polyglot-proxy-website.vercel.app/",
+      thumbnail: "/landing page.png",
+      featured: true,
+      featuredType: "Best Project",
+    },
     {
       id: 1,
       title: "Climate Guardian AI",
