@@ -546,6 +546,17 @@ const PROJECTS: Project[] = [
       demoUrl: "https://ai-loan-approval-prediction-loanlens-9wvyhgazcqkywws5iu2sah.streamlit.app/",
       thumbnail: "/home page.png",
     },
+     {
+      id: 39,
+      title: "Lumora",
+      description: "Transform your Chrome New Tab into a beautiful, customizable glassmorphism workspace with wallpapers, draggable widgets, notes, to-do lists, bookmarks, and more. ✨",
+      category: "Other",
+      technologies: ["Manifest.json", "Css", "js"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/Lumora",
+      demoUrl: "https://github.com/vinaysingh-05/Lumora",
+      thumbnail: "/chorme.png",
+    },
     {
       id: 37,
       title: "ML Learning Topics",
