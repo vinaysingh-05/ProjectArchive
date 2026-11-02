@@ -581,6 +581,19 @@ const PROJECTS: Project[] = [
       demoUrl: "https://deep-sentinel-ai-paper-detector-ptvlbvvzqneebvnvatekbk.streamlit.app/",
       thumbnail: "/ai paper.jpg",
     },
+     {
+      id: 37,
+      title: " ImageNet Vision",
+      description: "Interactive deep learning web app for real-time 1,000-class image classification powered by a 50-layer ResNet CNN, Keras 3, and Streamlit.",
+      category: "Deep Learning",
+      subcategory: "CNN",
+      technologies: ["Imagenet", "Keras", "ResNet50", "python", "Streamlit"],
+      status: "Completed",
+      githubUrl: "https://github.com/vinaysingh-05/ImageNet-Vision",
+      demoUrl: "https://imagenet-vision-bouusaweeupm3yfavnkcxv.streamlit.app/",
+      thumbnail: "/imagenet home page.png",
+    } ,
+
     {
       id: 37,
       title: "ML Learning Topics",
